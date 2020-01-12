@@ -216,7 +216,11 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	String^ constring = L"datasource=localhost;port=3306;username=root;";
 	MySqlConnection^ conDatabase = gcnew MySqlConnection(constring);
 	
-	MySqlCommand^ cmdDataBase = gcnew MySqlCommand("insert into	locadoradb.filme (nome_filme, ano_lancamento, genero, diretor) values('"+this->nomeFilmeTxt->Text+"', '" + this->anoLancamentoTxt->Text + "', '" + this->generoTxt->Text + "', '" + this->diretorTxt->Text + "')", conDatabase);
+	MySqlCommand^ cmdDataBase = gcnew MySqlCommand("insert into	locadoradb.filme (nome_filme, ano_lancamento, genero, diretor) values('"+this->nomeFilmeTxt->Text+"', '" + this->anoLancamentoTxt->Text + "', '" + this->generoTxt->Text + "', '" + this->diretorTxt->Text + "')	", conDatabase);
+	
+
+
+	
 	MySqlDataReader^ myReader;
 
 	try{
