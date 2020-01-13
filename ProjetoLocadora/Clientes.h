@@ -284,7 +284,7 @@ namespace ProjetoLocadora {
 			this->txtEmail->MaxLength = 50;
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(482, 26);
-			this->txtEmail->TabIndex = 12;
+			this->txtEmail->TabIndex = 13;
 			// 
 			// txtCidade
 			// 
@@ -292,7 +292,7 @@ namespace ProjetoLocadora {
 			this->txtCidade->MaxLength = 50;
 			this->txtCidade->Name = L"txtCidade";
 			this->txtCidade->Size = System::Drawing::Size(451, 26);
-			this->txtCidade->TabIndex = 13;
+			this->txtCidade->TabIndex = 11;
 			// 
 			// label7
 			// 
@@ -308,16 +308,16 @@ namespace ProjetoLocadora {
 			this->mskCEP->Location = System::Drawing::Point(17, 227);
 			this->mskCEP->Mask = L"00000-999";
 			this->mskCEP->Name = L"mskCEP";
-			this->mskCEP->Size = System::Drawing::Size(87, 26);
-			this->mskCEP->TabIndex = 15;
+			this->mskCEP->Size = System::Drawing::Size(89, 26);
+			this->mskCEP->TabIndex = 10;
 			// 
 			// mskTelefone
 			// 
 			this->mskTelefone->Location = System::Drawing::Point(631, 226);
-			this->mskTelefone->Mask = L"(99) 0000-0000";
+			this->mskTelefone->Mask = L"(99) 00000-0000";
 			this->mskTelefone->Name = L"mskTelefone";
-			this->mskTelefone->Size = System::Drawing::Size(100, 26);
-			this->mskTelefone->TabIndex = 16;
+			this->mskTelefone->Size = System::Drawing::Size(131, 26);
+			this->mskTelefone->TabIndex = 12;
 			// 
 			// Clientes
 			// 
@@ -356,13 +356,14 @@ namespace ProjetoLocadora {
 		tsbSalvar->Enabled = false;
 		tsbCancelar->Enabled = false;
 		tsbExcluir->Enabled = false;
-		tstId->Enabled = true;
+		tstId->Enabled = false;
 		tsbBuscar->Enabled = true;
 		txtNome->Enabled = false;
 		txtEndereco->Enabled = false;
 		mskCEP->Enabled = false;
 		txtCidade->Enabled = false;
 		mskTelefone->Enabled = false;
+		txtEmail->Enabled = false;
 	}
 private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^  e) {
 	tsbNovo->Enabled = false;
@@ -376,13 +377,14 @@ private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^ 
 	mskCEP->Enabled = true;
 	txtCidade->Enabled = true;
 	mskTelefone->Enabled = true;
+	txtEmail->Enabled = true;
 	txtNome->Focus();
 	novo = true;
 }
 private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs^  e) {
 	if (novo) //testa para ver se já existe o registro
 	{
-		cmd = gcnew MySqlCommand("INSERT INTO CLIENTE (NOME, ENDERECO, CEP, CIDADE, TELEFONE, EMAIL) VALUES('" + this->txtNome->Text + "', '" + this->txtEndereco->Text + "', '" + this->mskCEP->Text + "', '" + this->txtCidade->Text + "', '" + this->mskTelefone->Text + "', '" + this->txtEmail->Text + "')	", con);
+		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.CLIENTE (NOME, ENDERECO, CEP, CIDADE, TELEFONE, EMAIL) VALUES('" + this->txtNome->Text + "', '" + this->txtEndereco->Text + "', '" + this->mskCEP->Text + "', '" + this->txtCidade->Text + "', '" + this->mskTelefone->Text + "', '" + this->txtEmail->Text + "')	", con);
 		con->Open();
 		try
 		{
@@ -401,7 +403,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	}
 	else //registro existente é atualizado apenas
 	{
-		cmd = gcnew MySqlCommand(" UPDATE CLIENTE SET NOME = '" + this->txtNome->Text + "', ENDERECO = '" + this->txtEndereco->Text + "', CEP = '" + this->mskCEP->Text + "', CIDADE = '" + this->txtCidade->Text + "', TELEFONE = '" + this->mskTelefone->Text + "', EMAIL = '" + this->txtEmail->Text + "' WHERE ID = '" + this->txtId->Text + "' ;", con);
+		cmd = gcnew MySqlCommand(" UPDATE LOCADORADB.CLIENTE SET NOME = '" + this->txtNome->Text + "', ENDERECO = '" + this->txtEndereco->Text + "', CEP = '" + this->mskCEP->Text + "', CIDADE = '" + this->txtCidade->Text + "', TELEFONE = '" + this->mskTelefone->Text + "', EMAIL = '" + this->txtEmail->Text + "' WHERE ID = '" + this->txtId->Text + "' ;", con);
 		con->Open();
 		try
 		{
@@ -430,12 +432,14 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	mskCEP->Enabled = false;
 	txtCidade->Enabled = false;
 	mskTelefone->Enabled = false;
+	txtEmail->Enabled = false;
 	txtId->Text = "";
 	txtNome->Text = "";
 	txtEndereco->Text = "";
 	mskCEP->Text = "";
 	txtCidade->Text = "";
 	mskTelefone->Text = "";
+	txtEmail->Text = "";
 }
 private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventArgs^  e) {
 	tsbNovo->Enabled = true;
@@ -449,15 +453,17 @@ private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventAr
 	mskCEP->Enabled = false;
 	txtCidade->Enabled = false;
 	mskTelefone->Enabled = false;
+	txtEmail->Enabled = false;
 	txtId->Text = "";
 	txtNome->Text = "";
 	txtEndereco->Text = "";
 	mskCEP->Text = "";
 	txtCidade->Text = "";
 	mskTelefone->Text = "";
+	txtEmail->Text = "";
 }
 private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArgs^  e) {
-	cmd = gcnew MySqlCommand(" DELETE FROM CLIENTE WHERE ID = '" + this->txtId->Text + "' ;", con);
+	cmd = gcnew MySqlCommand(" DELETE FROM LOCADORADB.CLIENTE WHERE ID = '" + this->txtId->Text + "' ;", con);
 
 	con->Open();
 
@@ -487,15 +493,17 @@ private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArg
 	mskCEP->Enabled = false;
 	txtCidade->Enabled = false;
 	mskTelefone->Enabled = false;
+	txtEmail->Enabled = false;
 	txtId->Text = "";
 	txtNome->Text = "";
 	txtEndereco->Text = "";
 	mskCEP->Text = "";
 	txtCidade->Text = "";
 	mskTelefone->Text = "";
+	txtEmail->Text = "";
 }
 private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs^  e) { //retorna o registro com o Id informado
-	cmd = gcnew MySqlCommand("SELECT * FROM CLIENTE WHERE ID= '" + this->tstId->Text + "';", con);
+	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE WHERE ID= '" + this->tstId->Text + "';", con);
 	con->Open();
 
 	try
