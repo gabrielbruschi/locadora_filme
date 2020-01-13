@@ -19,7 +19,7 @@ namespace ProjetoLocadora {
 		String^ constring = L"datasource=localhost;port=3306;username=root;";
 		MySqlConnection^ con = gcnew MySqlConnection(constring);
 		MySqlCommand^ cmd;
-		MySqlDataReader^ myReader;
+		MySqlDataReader^ reader;
 
 		bool novo;
 
@@ -197,6 +197,7 @@ namespace ProjetoLocadora {
 			this->tsbBuscar->Name = L"tsbBuscar";
 			this->tsbBuscar->Size = System::Drawing::Size(28, 28);
 			this->tsbBuscar->Text = L"Buscar";
+			this->tsbBuscar->Click += gcnew System::EventHandler(this, &Clientes::tsbBuscar_Click);
 			// 
 			// label1
 			// 
@@ -456,7 +457,86 @@ private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventAr
 	mskTelefone->Text = "";
 }
 private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArgs^  e) {
+	cmd = gcnew MySqlCommand(" DELETE FROM CLIENTE WHERE ID = '" + this->txtId->Text + "' ;", con);
 
+	con->Open();
+
+	try
+	{
+		int i = cmd->ExecuteNonQuery();
+		if (i > 0)
+			MessageBox::Show("Registro excluído com sucesso!");
+	}
+	catch (Exception^ex)
+	{
+		MessageBox::Show("Erro: " + ex->Message);
+	}
+	finally
+	{
+		con->Close();
+	}
+
+	tsbNovo->Enabled = true;
+	tsbSalvar->Enabled = false;
+	tsbCancelar->Enabled = false;
+	tsbExcluir->Enabled = false;
+	tstId->Enabled = true;
+	tsbBuscar->Enabled = true;
+	txtNome->Enabled = false;
+	txtEndereco->Enabled = false;
+	mskCEP->Enabled = false;
+	txtCidade->Enabled = false;
+	mskTelefone->Enabled = false;
+	txtId->Text = "";
+	txtNome->Text = "";
+	txtEndereco->Text = "";
+	mskCEP->Text = "";
+	txtCidade->Text = "";
+	mskTelefone->Text = "";
+}
+private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs^  e) { //retorna o registro com o Id informado
+	cmd = gcnew MySqlCommand("SELECT * FROM CLIENTE WHERE ID= '" + this->tstId->Text + "';", con);
+	con->Open();
+
+	try
+	{
+		reader = cmd->ExecuteReader(); //armazena conteúdo do obj cmd
+		if (reader->Read()) //testa se há registros
+		{
+			tsbNovo->Enabled = false;
+			tsbSalvar->Enabled = true;
+			tsbCancelar->Enabled = true;
+			tsbExcluir->Enabled = true;
+			tstId->Enabled = false;
+			tsbBuscar->Enabled = false;
+			txtNome->Enabled = true;
+			txtEndereco->Enabled = true;
+			mskCEP->Enabled = true;
+			txtCidade->Enabled = true;
+			mskTelefone->Enabled = true;
+			txtNome->Focus();
+			txtId->Text = reader[0]->ToString();
+			txtNome->Text = reader[1]->ToString();
+			txtEndereco->Text = reader[2]->ToString();
+			mskCEP->Text = reader[3]->ToString();
+			txtCidade->Text = reader[4]->ToString();
+			mskTelefone->Text = reader[5]->ToString();
+			novo = false;
+		}
+		else
+			MessageBox::Show("Nenhum registro encontrado com o Id informado!");
+
+	}
+	catch (Exception^ex)
+	{
+		MessageBox::Show("Erro: " + ex->Message);
+	}
+	finally
+	{
+		con->Close();
+	}
+
+	tstId->Text = "";
 }
 };
 }
