@@ -218,9 +218,6 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 	
 	MySqlCommand^ cmdDataBase = gcnew MySqlCommand("insert into	locadoradb.filme (nome_filme, ano_lancamento, genero, diretor) values('"+this->nomeFilmeTxt->Text+"', '" + this->anoLancamentoTxt->Text + "', '" + this->generoTxt->Text + "', '" + this->diretorTxt->Text + "')	", conDatabase);
 	
-
-
-	
 	MySqlDataReader^ myReader;
 
 	try{
