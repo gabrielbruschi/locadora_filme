@@ -20,6 +20,9 @@ namespace ProjetoLocadora {
 		MySqlConnection^ con = gcnew MySqlConnection(constring);
 		MySqlCommand^ cmd;
 		MySqlDataReader^ reader;
+	private: System::Windows::Forms::MaskedTextBox^  mskCPF;
+
+	private: System::Windows::Forms::Label^  label8;
 
 		bool novo;
 
@@ -117,6 +120,8 @@ namespace ProjetoLocadora {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->mskCEP = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->mskTelefone = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->mskCPF = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->toolStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -220,7 +225,7 @@ namespace ProjetoLocadora {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(13, 136);
+			this->label3->Location = System::Drawing::Point(12, 283);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(78, 20);
 			this->label3->TabIndex = 3;
@@ -229,7 +234,7 @@ namespace ProjetoLocadora {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(13, 203);
+			this->label4->Location = System::Drawing::Point(640, 136);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(41, 20);
 			this->label4->TabIndex = 4;
@@ -238,7 +243,7 @@ namespace ProjetoLocadora {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(627, 203);
+			this->label5->Location = System::Drawing::Point(640, 214);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(71, 20);
 			this->label5->TabIndex = 5;
@@ -247,7 +252,7 @@ namespace ProjetoLocadora {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(13, 272);
+			this->label6->Location = System::Drawing::Point(216, 136);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(48, 20);
 			this->label6->TabIndex = 6;
@@ -272,32 +277,33 @@ namespace ProjetoLocadora {
 			// txtEndereco
 			// 
 			this->txtEndereco->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->txtEndereco->Location = System::Drawing::Point(17, 159);
+			this->txtEndereco->Location = System::Drawing::Point(17, 306);
 			this->txtEndereco->MaxLength = 50;
 			this->txtEndereco->Name = L"txtEndereco";
 			this->txtEndereco->Size = System::Drawing::Size(792, 26);
-			this->txtEndereco->TabIndex = 9;
+			this->txtEndereco->TabIndex = 14;
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(17, 295);
+			this->txtEmail->Location = System::Drawing::Point(220, 159);
 			this->txtEmail->MaxLength = 50;
 			this->txtEmail->Name = L"txtEmail";
-			this->txtEmail->Size = System::Drawing::Size(482, 26);
-			this->txtEmail->TabIndex = 13;
+			this->txtEmail->Size = System::Drawing::Size(363, 26);
+			this->txtEmail->TabIndex = 10;
 			// 
 			// txtCidade
 			// 
-			this->txtCidade->Location = System::Drawing::Point(129, 226);
+			this->txtCidade->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
+			this->txtCidade->Location = System::Drawing::Point(17, 237);
 			this->txtCidade->MaxLength = 50;
 			this->txtCidade->Name = L"txtCidade";
-			this->txtCidade->Size = System::Drawing::Size(451, 26);
-			this->txtCidade->TabIndex = 11;
+			this->txtCidade->Size = System::Drawing::Size(503, 26);
+			this->txtCidade->TabIndex = 12;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(125, 203);
+			this->label7->Location = System::Drawing::Point(12, 214);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(59, 20);
 			this->label7->TabIndex = 14;
@@ -305,25 +311,44 @@ namespace ProjetoLocadora {
 			// 
 			// mskCEP
 			// 
-			this->mskCEP->Location = System::Drawing::Point(17, 227);
+			this->mskCEP->Location = System::Drawing::Point(644, 159);
 			this->mskCEP->Mask = L"00000-999";
 			this->mskCEP->Name = L"mskCEP";
 			this->mskCEP->Size = System::Drawing::Size(89, 26);
-			this->mskCEP->TabIndex = 10;
+			this->mskCEP->TabIndex = 11;
 			// 
 			// mskTelefone
 			// 
-			this->mskTelefone->Location = System::Drawing::Point(631, 226);
+			this->mskTelefone->Location = System::Drawing::Point(644, 237);
 			this->mskTelefone->Mask = L"(99) 00000-0000";
 			this->mskTelefone->Name = L"mskTelefone";
 			this->mskTelefone->Size = System::Drawing::Size(131, 26);
-			this->mskTelefone->TabIndex = 12;
+			this->mskTelefone->TabIndex = 13;
+			// 
+			// mskCPF
+			// 
+			this->mskCPF->Location = System::Drawing::Point(17, 159);
+			this->mskCPF->Mask = L"000.000.000-00";
+			this->mskCPF->Name = L"mskCPF";
+			this->mskCPF->Size = System::Drawing::Size(131, 26);
+			this->mskCPF->TabIndex = 9;
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Location = System::Drawing::Point(12, 136);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(40, 20);
+			this->label8->TabIndex = 16;
+			this->label8->Text = L"CPF";
 			// 
 			// Clientes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(838, 357);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->mskCPF);
 			this->Controls->Add(this->mskTelefone);
 			this->Controls->Add(this->mskCEP);
 			this->Controls->Add(this->label7);
@@ -356,9 +381,11 @@ namespace ProjetoLocadora {
 		tsbSalvar->Enabled = false;
 		tsbCancelar->Enabled = false;
 		tsbExcluir->Enabled = false;
-		tstId->Enabled = false;
+		tstId->Enabled = true;
 		tsbBuscar->Enabled = true;
+		txtId->Enabled = false;
 		txtNome->Enabled = false;
+		mskCPF->Enabled = false;
 		txtEndereco->Enabled = false;
 		mskCEP->Enabled = false;
 		txtCidade->Enabled = false;
@@ -372,7 +399,9 @@ private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^ 
 	tsbExcluir->Enabled = false;
 	tstId->Enabled = false;
 	tsbBuscar->Enabled = false;
+	txtId->Enabled = false;
 	txtNome->Enabled = true;
+	mskCPF->Enabled = true;
 	txtEndereco->Enabled = true;
 	mskCEP->Enabled = true;
 	txtCidade->Enabled = true;
@@ -382,9 +411,30 @@ private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^ 
 	novo = true;
 }
 private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (txtNome->Text == "") {
+		MessageBox::Show("Por favor, informe um nome.");
+		txtNome->Focus();
+		return;
+	}
+	if (mskCPF->Text == "") {
+		MessageBox::Show("Por favor, insira um CPF.");
+		mskCPF->Focus();
+		return;
+	}
+	if (mskCEP->Text == "") {
+		MessageBox::Show("Por favor, informe o CEP.");
+		mskCEP->Focus();
+		return;
+	}
+	if (mskTelefone->Text == "") {
+		MessageBox::Show("Por favor, informe um número de telefone.");
+		mskTelefone->Focus();
+		return;
+	}
+
 	if (novo) //testa para ver se já existe o registro
 	{
-		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.CLIENTE (NOME, ENDERECO, CEP, CIDADE, TELEFONE, EMAIL) VALUES('" + this->txtNome->Text + "', '" + this->txtEndereco->Text + "', '" + this->mskCEP->Text + "', '" + this->txtCidade->Text + "', '" + this->mskTelefone->Text + "', '" + this->txtEmail->Text + "')	", con);
+		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.CLIENTE (NOME, CPF, ENDERECO, CEP, CIDADE, TELEFONE, EMAIL) VALUES('" + this->txtNome->Text + "', '" + this->mskCPF->Text + "', '" + this->txtEndereco->Text + "', '" + this->mskCEP->Text + "', '" + this->txtCidade->Text + "', '" + this->mskTelefone->Text + "', '" + this->txtEmail->Text + "')	", con);
 		con->Open();
 		try
 		{
@@ -403,7 +453,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	}
 	else //registro existente é atualizado apenas
 	{
-		cmd = gcnew MySqlCommand(" UPDATE LOCADORADB.CLIENTE SET NOME = '" + this->txtNome->Text + "', ENDERECO = '" + this->txtEndereco->Text + "', CEP = '" + this->mskCEP->Text + "', CIDADE = '" + this->txtCidade->Text + "', TELEFONE = '" + this->mskTelefone->Text + "', EMAIL = '" + this->txtEmail->Text + "' WHERE ID = '" + this->txtId->Text + "' ;", con);
+		cmd = gcnew MySqlCommand(" UPDATE LOCADORADB.CLIENTE SET NOME = '" + this->txtNome->Text + "', CPF = '" + this->mskCPF->Text + "', ENDERECO = '" + this->txtEndereco->Text + "', CEP = '" + this->mskCEP->Text + "', CIDADE = '" + this->txtCidade->Text + "', TELEFONE = '" + this->mskTelefone->Text + "', EMAIL = '" + this->txtEmail->Text + "' WHERE ID = '" + this->txtId->Text + "' ;", con);
 		con->Open();
 		try
 		{
@@ -428,6 +478,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	tstId->Enabled = true;
 	tsbBuscar->Enabled = true;
 	txtNome->Enabled = false;
+	mskCPF->Enabled = false;
 	txtEndereco->Enabled = false;
 	mskCEP->Enabled = false;
 	txtCidade->Enabled = false;
@@ -435,6 +486,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	txtEmail->Enabled = false;
 	txtId->Text = "";
 	txtNome->Text = "";
+	mskCPF->Text = "";
 	txtEndereco->Text = "";
 	mskCEP->Text = "";
 	txtCidade->Text = "";
@@ -449,6 +501,7 @@ private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventAr
 	tstId->Enabled = true;
 	tsbBuscar->Enabled = true;
 	txtNome->Enabled = false;
+	mskCPF->Enabled = false;
 	txtEndereco->Enabled = false;
 	mskCEP->Enabled = false;
 	txtCidade->Enabled = false;
@@ -456,6 +509,7 @@ private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventAr
 	txtEmail->Enabled = false;
 	txtId->Text = "";
 	txtNome->Text = "";
+	mskCPF->Text = "";
 	txtEndereco->Text = "";
 	mskCEP->Text = "";
 	txtCidade->Text = "";
@@ -489,6 +543,7 @@ private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArg
 	tstId->Enabled = true;
 	tsbBuscar->Enabled = true;
 	txtNome->Enabled = false;
+	mskCPF->Enabled = false;
 	txtEndereco->Enabled = false;
 	mskCEP->Enabled = false;
 	txtCidade->Enabled = false;
@@ -518,17 +573,22 @@ private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs
 			tstId->Enabled = false;
 			tsbBuscar->Enabled = false;
 			txtNome->Enabled = true;
+			mskCPF->Enabled = true;
 			txtEndereco->Enabled = true;
 			mskCEP->Enabled = true;
 			txtCidade->Enabled = true;
 			mskTelefone->Enabled = true;
+			txtEmail->Enabled = true;
 			txtNome->Focus();
 			txtId->Text = reader[0]->ToString();
 			txtNome->Text = reader[1]->ToString();
-			txtEndereco->Text = reader[2]->ToString();
-			mskCEP->Text = reader[3]->ToString();
-			txtCidade->Text = reader[4]->ToString();
-			mskTelefone->Text = reader[5]->ToString();
+			mskCPF->Text = reader[2]->ToString();
+			txtEmail->Text = reader[3]->ToString();
+			mskCEP->Text = reader[4]->ToString();
+			txtCidade->Text = reader[5]->ToString();
+			mskTelefone->Text = reader[6]->ToString();
+			txtEndereco->Text = reader[7]->ToString();
+			
 			novo = false;
 		}
 		else
