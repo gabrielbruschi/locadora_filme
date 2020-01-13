@@ -116,7 +116,7 @@ namespace ProjetoLocadora {
 			this->diretorTxt->Multiline = true;
 			this->diretorTxt->Name = L"diretorTxt";
 			this->diretorTxt->Size = System::Drawing::Size(164, 26);
-			this->diretorTxt->TabIndex = 12;
+			this->diretorTxt->TabIndex = 4;
 			// 
 			// label3
 			// 
@@ -132,7 +132,7 @@ namespace ProjetoLocadora {
 			this->nomeFilmeTxt->Location = System::Drawing::Point(255, 97);
 			this->nomeFilmeTxt->Name = L"nomeFilmeTxt";
 			this->nomeFilmeTxt->Size = System::Drawing::Size(164, 26);
-			this->nomeFilmeTxt->TabIndex = 9;
+			this->nomeFilmeTxt->TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -148,14 +148,14 @@ namespace ProjetoLocadora {
 			this->anoLancamentoTxt->Location = System::Drawing::Point(255, 167);
 			this->anoLancamentoTxt->Name = L"anoLancamentoTxt";
 			this->anoLancamentoTxt->Size = System::Drawing::Size(164, 26);
-			this->anoLancamentoTxt->TabIndex = 10;
+			this->anoLancamentoTxt->TabIndex = 2;
 			// 
 			// cadastrarBtn
 			// 
 			this->cadastrarBtn->Location = System::Drawing::Point(43, 354);
 			this->cadastrarBtn->Name = L"cadastrarBtn";
 			this->cadastrarBtn->Size = System::Drawing::Size(111, 59);
-			this->cadastrarBtn->TabIndex = 13;
+			this->cadastrarBtn->TabIndex = 5;
 			this->cadastrarBtn->Text = L"Cadastrar";
 			this->cadastrarBtn->UseVisualStyleBackColor = true;
 			this->cadastrarBtn->Click += gcnew System::EventHandler(this, &CreateForm::button1_Click);
@@ -171,6 +171,7 @@ namespace ProjetoLocadora {
 			// 
 			// generoComboBox
 			// 
+			this->generoComboBox->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->generoComboBox->FormattingEnabled = true;
 			this->generoComboBox->Items->AddRange(gcnew cli::array< System::Object^  >(7) {
 				L"Suspense", L"Drama", L"Terror", L"Ação",
@@ -179,14 +180,14 @@ namespace ProjetoLocadora {
 			this->generoComboBox->Location = System::Drawing::Point(255, 214);
 			this->generoComboBox->Name = L"generoComboBox";
 			this->generoComboBox->Size = System::Drawing::Size(164, 28);
-			this->generoComboBox->TabIndex = 18;
+			this->generoComboBox->TabIndex = 3;
 			// 
 			// atualizarBtn
 			// 
 			this->atualizarBtn->Location = System::Drawing::Point(209, 354);
 			this->atualizarBtn->Name = L"atualizarBtn";
 			this->atualizarBtn->Size = System::Drawing::Size(111, 59);
-			this->atualizarBtn->TabIndex = 20;
+			this->atualizarBtn->TabIndex = 6;
 			this->atualizarBtn->Text = L"Atualizar";
 			this->atualizarBtn->UseVisualStyleBackColor = true;
 			this->atualizarBtn->Click += gcnew System::EventHandler(this, &CreateForm::atualizarBtn_Click);
@@ -196,7 +197,7 @@ namespace ProjetoLocadora {
 			this->excluirBtn->Location = System::Drawing::Point(370, 354);
 			this->excluirBtn->Name = L"excluirBtn";
 			this->excluirBtn->Size = System::Drawing::Size(111, 59);
-			this->excluirBtn->TabIndex = 21;
+			this->excluirBtn->TabIndex = 7;
 			this->excluirBtn->Text = L"Excluir";
 			this->excluirBtn->UseVisualStyleBackColor = true;
 			this->excluirBtn->Click += gcnew System::EventHandler(this, &CreateForm::excluirBtn_Click);
@@ -223,6 +224,7 @@ namespace ProjetoLocadora {
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Location = System::Drawing::Point(500, 32);
 			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
 			this->dataGridView1->RowTemplate->Height = 28;
 			this->dataGridView1->Size = System::Drawing::Size(826, 495);
 			this->dataGridView1->TabIndex = 24;
@@ -248,6 +250,7 @@ namespace ProjetoLocadora {
 			this->Controls->Add(this->cadastrarBtn);
 			this->Controls->Add(this->label1);
 			this->Name = L"CreateForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"CreateForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
@@ -259,10 +262,26 @@ namespace ProjetoLocadora {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) { //Cadastrar novo filme
 
-		if (nomeFilmeTxt->Text == "" || anoLancamentoTxt->Text == "" || generoComboBox->Text == "" || diretorTxt->Text == "") {
-			MessageBox::Show("Por favor, coloque todos os campos.");
+		if (nomeFilmeTxt->Text == "") {
+			MessageBox::Show("Por favor, informe o título do filme.");
+			nomeFilmeTxt->Focus();
+			return;
 		}
-		else {
+		if (anoLancamentoTxt->TextLength == 0) {
+			MessageBox::Show("Por favor, informe um ano válida para o filme.");
+			anoLancamentoTxt->Focus();
+			return;
+		}
+		if (generoComboBox->Text == "") {
+			MessageBox::Show("Por favor, informe o gênero do filme.");
+			generoComboBox->Focus();
+			return;
+		}
+		if (diretorTxt->Text == "") {
+			MessageBox::Show("Por favor, informe o diretor do filme.");
+			diretorTxt->Focus();
+			return;
+		}
 
 			cmdDataBase = gcnew MySqlCommand("INSERT INTO locadoradb.filme (id, nome_filme, ano_lancamento, genero, diretor) VALUES('" + this->idTxt->Text + "', '" + this->nomeFilmeTxt->Text + "', '" + this->anoLancamentoTxt->Text + "', '" + this->generoComboBox->Text + "', '" + this->diretorTxt->Text + "')	", conDatabase);
 
@@ -277,7 +296,7 @@ namespace ProjetoLocadora {
 			catch (Exception^ex) {
 				MessageBox::Show(ex->Message);
 			}
-		}
+		
 	}
 
 
@@ -361,17 +380,23 @@ private: System::Void excluirBtn_Click(System::Object^  sender, System::EventArg
 }
 
 private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
-	if (e->RowIndex >= 0)
-	{
-		cadastrarBtn->Enabled = false;
-		DataGridViewRow^ row = this->dataGridView1->Rows[e->RowIndex];
+	
+	try {
+		if (e->RowIndex >= 0)
+		{
+			cadastrarBtn->Enabled = false;
+			DataGridViewRow^ row = this->dataGridView1->Rows[e->RowIndex];
 
-		idTxt->Text = row->Cells[0]->Value->ToString();
-		nomeFilmeTxt->Text = row->Cells[1]->Value->ToString();
-		anoLancamentoTxt->Text = row->Cells[2]->Value->ToString();
-		generoComboBox->Text = row->Cells[3]->Value->ToString();
-		diretorTxt->Text = row->Cells[4]->Value->ToString();
+			idTxt->Text = row->Cells[0]->Value->ToString();
+			nomeFilmeTxt->Text = row->Cells[1]->Value->ToString();
+			anoLancamentoTxt->Text = row->Cells[2]->Value->ToString();
+			generoComboBox->Text = row->Cells[3]->Value->ToString();
+			diretorTxt->Text = row->Cells[4]->Value->ToString();
 
+		}
+	}
+	catch (Exception^ex) {
+		MessageBox::Show(ex->Message);
 	}
 }
 };
