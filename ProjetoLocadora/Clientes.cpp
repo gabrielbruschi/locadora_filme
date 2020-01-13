@@ -1,5 +1,5 @@
 #include "Clientes.h"
-
+/*
 using namespace System;
 using namespace System::Windows::Forms;
 
@@ -11,3 +11,4 @@ void Main(array<String^>^ args) {
 	Application::Run(%form);
 }
 
+*/

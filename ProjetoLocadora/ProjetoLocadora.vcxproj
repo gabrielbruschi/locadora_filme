@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="Clientes.cpp" />
     <ClCompile Include="CreateForm.cpp" />
+    <ClCompile Include="Filmes.cpp" />
     <ClCompile Include="MainForm.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +145,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CreateForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Filmes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MainForm.h">
@@ -156,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateForm.resx">
       <DependentUpon>CreateForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filmes.resx">
+      <DependentUpon>Filmes.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
