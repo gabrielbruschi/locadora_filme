@@ -253,6 +253,7 @@ namespace ProjetoLocadora {
 			this->Name = L"CreateForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"CreateForm";
+			this->Load += gcnew System::EventHandler(this, &CreateForm::CreateForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -399,6 +400,8 @@ private: System::Void dataGridView1_CellContentClick(System::Object^  sender, Sy
 	catch (Exception^ex) {
 		MessageBox::Show(ex->Message);
 	}
+}
+private: System::Void CreateForm_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

@@ -135,12 +135,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Aluguel.cpp" />
     <ClCompile Include="Clientes.cpp" />
     <ClCompile Include="CreateForm.cpp" />
     <ClCompile Include="Filmes.cpp" />
+    <ClCompile Include="ListarCliente.cpp" />
+    <ClCompile Include="ListarClientes.cpp" />
     <ClCompile Include="MainForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Aluguel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Clientes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -150,11 +156,17 @@
     <ClInclude Include="Filmes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ListarClientes.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Aluguel.resx">
+      <DependentUpon>Aluguel.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.h</DependentUpon>
     </EmbeddedResource>
@@ -163,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Filmes.resx">
       <DependentUpon>Filmes.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListarClientes.resx">
+      <DependentUpon>ListarClientes.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.h</DependentUpon>
