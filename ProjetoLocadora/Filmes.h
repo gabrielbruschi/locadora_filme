@@ -408,10 +408,53 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 		{
 			con->Close();
 		}
+
+		//SELECT FIL_ID
+		String^ temp_fil_id = "";
+
+		cmd = gcnew MySqlCommand("SELECT FIL_ID FROM LOCADORADB.FILME WHERE TITULO= '" + this->txtTitulo->Text + "';", con);
+
+		try
+		{
+			con->Open();
+			reader = cmd->ExecuteReader();
+			if (reader->Read())
+			{
+				temp_fil_id = reader[0]->ToString();
+			}
+			else
+				MessageBox::Show("Nenhum registro encontrado com o Id informado!");
+
+		}
+		catch (Exception^ex)
+		{
+			MessageBox::Show("Erro: " + ex->Message);
+		}
+		finally
+		{
+			con->Close();
+		}
+
+		//ADD STATUS
+		String^ _disponivel = "DISPONIVEL";
+		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.STATUS (FIL_ID, DISPONIVEL)  VALUES('" + temp_fil_id + "', '" + _disponivel + "') ", con);
+		try
+		{
+			con->Open();
+			int i = cmd->ExecuteNonQuery();
+		}
+		catch (Exception^ex)
+		{
+			MessageBox::Show("Erro: " + ex->Message);
+		}
+		finally
+		{
+			con->Close();
+		}
 	}
 	else //registro existente é atualizado apenas
 	{
-		cmd = gcnew MySqlCommand("UPDATE LOCADORADB.FILME SET TITULO = '" + this->txtTitulo->Text + "', GENERO = '" + this->cbGenero->Text + "', DIRETOR = '" + this->txtDiretor->Text + "', ANO = '" + this->mskAno->Text + "', DATA_AQUISICAO = '" + this->mskAquisicao->Text + "' WHERE ID = '" + this->txtId->Text + "' ;", con);
+		cmd = gcnew MySqlCommand("UPDATE LOCADORADB.FILME SET TITULO = '" + this->txtTitulo->Text + "', GENERO = '" + this->cbGenero->Text + "', DIRETOR = '" + this->txtDiretor->Text + "', ANO = '" + this->mskAno->Text + "', DATA_AQUISICAO = '" + this->mskAquisicao->Text + "' WHERE FIL_ID = '" + this->txtId->Text + "' ;", con);
 		con->Open();
 		try
 		{
@@ -467,8 +510,7 @@ private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventAr
 	mskAquisicao->Text = "";
 }
 private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArgs^  e) {
-	cmd = gcnew MySqlCommand(" DELETE FROM LOCADORADB.FILME WHERE ID = '" + this->txtId->Text + "' ;", con);
-
+	cmd = gcnew MySqlCommand("DELETE FROM LOCADORADB.FILME, LOCADORADB.STATUS USING LOCADORADB.FILME INNER JOIN LOCADORADB.STATUS WHERE LOCADORADB.FILME.FIL_ID = LOCADORADB.STATUS.FIL_ID AND LOCADORADB.FILME.FIL_ID = '" + this->txtId->Text + "' AND LOCADORADB.STATUS.FIL_ID = '" + this->txtId->Text + "' ;", con);
 	con->Open();
 
 	try

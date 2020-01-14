@@ -186,8 +186,8 @@ namespace ProjetoLocadora {
 			// tsbBuscaPorId
 			// 
 			this->tsbBuscaPorId->Name = L"tsbBuscaPorId";
-			this->tsbBuscaPorId->Size = System::Drawing::Size(121, 28);
-			this->tsbBuscaPorId->Text = L"Buscar por Id:";
+			this->tsbBuscaPorId->Size = System::Drawing::Size(131, 28);
+			this->tsbBuscaPorId->Text = L"Buscar por CPF";
 			// 
 			// tstId
 			// 
@@ -558,7 +558,7 @@ private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArg
 	txtEmail->Text = "";
 }
 private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs^  e) { //retorna o registro com o Id informado
-	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE WHERE ID= '" + this->tstId->Text + "';", con);
+	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE WHERE CPF= '" + this->tstId->Text + "';", con);
 	con->Open();
 
 	try

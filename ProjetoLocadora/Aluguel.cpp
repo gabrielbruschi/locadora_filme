@@ -1,5 +1,6 @@
 #include "Aluguel.h"
 
+/*
 using namespace System;
 using namespace System::Windows::Forms;
 
@@ -10,3 +11,4 @@ void Main(array<String^>^ args) {
 	ProjetoLocadora::Aluguel form;
 	Application::Run(%form);
 }
+*/

@@ -136,15 +136,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Aluguel.cpp" />
+    <ClCompile Include="casa.cpp" />
     <ClCompile Include="Clientes.cpp" />
     <ClCompile Include="CreateForm.cpp" />
     <ClCompile Include="Filmes.cpp" />
     <ClCompile Include="ListarCliente.cpp" />
     <ClCompile Include="ListarClientes.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aluguel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="casa.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Clientes.h">
@@ -159,6 +164,9 @@
     <ClInclude Include="ListarClientes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Main.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -166,6 +174,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Aluguel.resx">
       <DependentUpon>Aluguel.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="casa.resx">
+      <DependentUpon>casa.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <DependentUpon>Clientes.h</DependentUpon>

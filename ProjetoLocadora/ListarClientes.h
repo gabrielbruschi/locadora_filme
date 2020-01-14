@@ -104,7 +104,7 @@ namespace ProjetoLocadora {
 			// clmCpf
 			// 
 			this->clmCpf->Text = L"CPF";
-			this->clmCpf->Width = 158;
+			this->clmCpf->Width = 118;
 			// 
 			// clmeEmail
 			// 
@@ -114,7 +114,7 @@ namespace ProjetoLocadora {
 			// clmCep
 			// 
 			this->clmCep->Text = L"CEP";
-			this->clmCep->Width = 149;
+			this->clmCep->Width = 109;
 			// 
 			// clmCidade
 			// 
