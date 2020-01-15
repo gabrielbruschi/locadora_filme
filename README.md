@@ -8,7 +8,7 @@ Na tela inicial os filmes do catálogo são exibidos. Há possibilidade de selec
 ![](header.png)
 
 ## Instalação
-Clone o repositório
+Para abrir o projeto no Visual Studio é necessário clonar o repositório.
 
 ```git clone https://github.com/gabrielbruschi/locadora_filme```
 
@@ -16,6 +16,9 @@ Entre na pasta clonada
 
 ```cd ProjetoLocadora/```
 
+A referência para o MySql.Data está contida no projeto. Mas caso seja necessário adicionar, faça:
+
+``References -> Assemblies -> e procure por 'MySql.Data'``
 
 O arquivo ``locadoradb.sql`` deve ser adicionado ao banco de dados com nome "locadoradb".
 Em testes utilizei o ``XAMPP`` como sendo o servidor independente, com os parâmetros:
