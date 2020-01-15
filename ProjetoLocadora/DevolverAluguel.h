@@ -455,7 +455,7 @@ namespace ProjetoLocadora {
 		txtTitulo->Enabled = false;
 		btnDevolver->Enabled = false;
 
-		ListarDtGridView();
+		//ListarDtGridView();
 	}
 
 private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -466,12 +466,11 @@ private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^ 
 
 private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventArgs^  e) {
 	LimparCampos();
-	ListarDtGridView();
 	btnSelecionaCliente->Enabled;
 }
 
 private: System::Void btnSelecionaCliente_Click(System::Object^  sender, System::EventArgs^  e) {
-	cmd = gcnew MySqlCommand("SELECT LOCADORADB.CLIENTE.CLI_ID, LOCADORADB.CLIENTE.NOME, LOCADORADB.CLIENTE.CPF, LOCADORADB.LOCACAO.LOC_ID, LOCADORADB.FILME.FIL_ID, LOCADORADB.FILME.TITULO, LOCADORADB.LOCACAO.DATA_INICIO  FROM LOCADORADB.LOCACAO INNER JOIN LOCADORADB.CLIENTE INNER JOIN LOCADORADB.FILME  ON LOCADORADB.LOCACAO.CLI_ID = LOCADORADB.CLIENTE.CLI_ID AND LOCADORADB.LOCACAO.FIL_ID = LOCADORADB.FILME.FIL_ID AND LOCADORADB.CLIENTE.CPF= '" + this->mskCPF->Text + "'", con);
+	cmd = gcnew MySqlCommand("SELECT LOCADORADB.CLIENTE.CLI_ID, LOCADORADB.CLIENTE.NOME, LOCADORADB.CLIENTE.CPF, LOCADORADB.LOCACAO.LOC_ID, LOCADORADB.FILME.FIL_ID, LOCADORADB.FILME.TITULO, LOCADORADB.LOCACAO.DATA_INICIO  FROM LOCADORADB.LOCACAO INNER JOIN LOCADORADB.CLIENTE INNER JOIN LOCADORADB.STATUS INNER JOIN LOCADORADB.FILME  ON LOCADORADB.LOCACAO.CLI_ID = LOCADORADB.CLIENTE.CLI_ID AND LOCADORADB.LOCACAO.FIL_ID = LOCADORADB.FILME.FIL_ID AND LOCADORADB.FILME.FIL_ID = LOCADORADB.STATUS.FIL_ID AND LOCADORADB.STATUS.DISPONIVEL = 'NAO' AND LOCADORADB.CLIENTE.CPF= '" + this->mskCPF->Text + "'", con);
 
 	try
 	{
@@ -614,8 +613,6 @@ private: System::Void btnDevolver_Click(System::Object^  sender, System::EventAr
 
 	UpdateStatus();
 	LimparCampos();
-	ListarDtGridView();
-	
 }
 
 		 //Atualiza o Status DEVOLVIDO do filme para "SIM"

@@ -130,6 +130,7 @@ namespace ProjetoLocadora {
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			this->toolStripSeparator1 = (gcnew System::Windows::Forms::ToolStripSeparator());
 			this->tsbCancelar = (gcnew System::Windows::Forms::ToolStripButton());
+			this->tsbListar = (gcnew System::Windows::Forms::ToolStripButton());
 			this->mskCPF = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->btnSelecionaCliente = (gcnew System::Windows::Forms::Button());
 			this->txtIdFilme = (gcnew System::Windows::Forms::TextBox());
@@ -152,7 +153,6 @@ namespace ProjetoLocadora {
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
-			this->tsbListar = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStrip1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -217,9 +217,9 @@ namespace ProjetoLocadora {
 			this->label2->AutoSize = true;
 			this->label2->Location = System::Drawing::Point(133, 30);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(115, 20);
+			this->label2->Size = System::Drawing::Size(158, 20);
 			this->label2->TabIndex = 42;
-			this->label2->Text = L"Informe o título";
+			this->label2->Text = L"Informe o título ou ID";
 			// 
 			// label1
 			// 
@@ -256,6 +256,15 @@ namespace ProjetoLocadora {
 			this->tsbCancelar->Size = System::Drawing::Size(106, 29);
 			this->tsbCancelar->Text = L"Cancelar";
 			this->tsbCancelar->Click += gcnew System::EventHandler(this, &Aluguel::tsbCancelar_Click);
+			// 
+			// tsbListar
+			// 
+			this->tsbListar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbListar.Image")));
+			this->tsbListar->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->tsbListar->Name = L"tsbListar";
+			this->tsbListar->Size = System::Drawing::Size(148, 29);
+			this->tsbListar->Text = L"Exibir Clientes";
+			this->tsbListar->Click += gcnew System::EventHandler(this, &Aluguel::tsbListar_Click_1);
 			// 
 			// mskCPF
 			// 
@@ -450,7 +459,7 @@ namespace ProjetoLocadora {
 			this->groupBox1->Controls->Add(this->btnSelecionaCliente);
 			this->groupBox1->Location = System::Drawing::Point(33, 37);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(691, 218);
+			this->groupBox1->Size = System::Drawing::Size(691, 181);
 			this->groupBox1->TabIndex = 75;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Dados do Locatário";
@@ -471,9 +480,9 @@ namespace ProjetoLocadora {
 			this->groupBox2->Controls->Add(this->label10);
 			this->groupBox2->Controls->Add(this->label11);
 			this->groupBox2->Controls->Add(this->txtGenero);
-			this->groupBox2->Location = System::Drawing::Point(33, 224);
+			this->groupBox2->Location = System::Drawing::Point(33, 237);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(691, 253);
+			this->groupBox2->Size = System::Drawing::Size(691, 240);
 			this->groupBox2->TabIndex = 76;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Selecionar Filme";
@@ -511,15 +520,6 @@ namespace ProjetoLocadora {
 			this->groupBox4->Size = System::Drawing::Size(1223, 525);
 			this->groupBox4->TabIndex = 78;
 			this->groupBox4->TabStop = false;
-			// 
-			// tsbListar
-			// 
-			this->tsbListar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbListar.Image")));
-			this->tsbListar->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->tsbListar->Name = L"tsbListar";
-			this->tsbListar->Size = System::Drawing::Size(148, 29);
-			this->tsbListar->Text = L"Exibir Clientes";
-			this->tsbListar->Click += gcnew System::EventHandler(this, &Aluguel::tsbListar_Click_1);
 			// 
 			// Aluguel
 			// 
@@ -597,7 +597,7 @@ private: System::Void btnSelecionaCliente_Click(System::Object^  sender, System:
 
 }
 private: System::Void btnProcurarFilme_Click(System::Object^  sender, System::EventArgs^  e) {
-	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.FILME INNER JOIN LOCADORADB.STATUS ON LOCADORADB.FILME.FIL_ID = LOCADORADB.STATUS.FIL_ID AND LOCADORADB.FILME.TITULO= '" + this->txtTitulo->Text + "'", con);
+	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.FILME INNER JOIN LOCADORADB.STATUS ON LOCADORADB.FILME.FIL_ID = LOCADORADB.STATUS.FIL_ID AND (LOCADORADB.FILME.TITULO = '" + this->txtTitulo->Text + "' OR LOCADORADB.FILME.FIL_ID = '" + this->txtTitulo->Text + "') ", con);
 	
 	try
 	{
@@ -617,7 +617,7 @@ private: System::Void btnProcurarFilme_Click(System::Object^  sender, System::Ev
 				txtGenero->Text = reader[2]->ToString();
 				txtDiretor->Text = reader[3]->ToString();
 				txtAno->Text = reader[4]->ToString();
-				txtDisponivel->Text = reader[8]->ToString();
+				txtDisponivel->Text = reader[7]->ToString();
 
 				dtpInicio->Focus();
 		}

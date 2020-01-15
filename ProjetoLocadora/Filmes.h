@@ -249,8 +249,8 @@ namespace ProjetoLocadora {
 			// tsbBuscaPorId
 			// 
 			this->tsbBuscaPorId->Name = L"tsbBuscaPorId";
-			this->tsbBuscaPorId->Size = System::Drawing::Size(149, 29);
-			this->tsbBuscaPorId->Text = L"Buscar por Título:";
+			this->tsbBuscaPorId->Size = System::Drawing::Size(198, 29);
+			this->tsbBuscaPorId->Text = L"Buscar por Título ou ID:";
 			// 
 			// tstId
 			// 
@@ -545,7 +545,7 @@ private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs
 		return;
 	}
 
-	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.FILME WHERE TITULO= '" + this->tstId->Text + "';", con);
+	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.FILME WHERE (TITULO= '" + this->tstId->Text + "' OR FIL_ID= '" + this->tstId->Text + "');", con);
 	con->Open();
 
 	try

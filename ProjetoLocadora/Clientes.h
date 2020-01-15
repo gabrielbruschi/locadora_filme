@@ -188,8 +188,8 @@ namespace ProjetoLocadora {
 			// tsbBuscaPorId
 			// 
 			this->tsbBuscaPorId->Name = L"tsbBuscaPorId";
-			this->tsbBuscaPorId->Size = System::Drawing::Size(131, 29);
-			this->tsbBuscaPorId->Text = L"Buscar por CPF";
+			this->tsbBuscaPorId->Size = System::Drawing::Size(174, 29);
+			this->tsbBuscaPorId->Text = L"Pesquisar CPF ou ID:";
 			// 
 			// tstId
 			// 
@@ -593,18 +593,8 @@ private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArg
 	txtEmail->Text = "";
 }
 private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs^  e) {
-	//if (tstId->Text == "") {
-	//	tstId->Focus();
-	//	return;
-	//}
-	String^ _mslCPF = mskCPF->Text;
-	int x_mskCPF = _mslCPF->Length;
-	if (x_mskCPF < 14) {
-		MessageBox::Show("Por favor, insira um CPF válido.");
-		mskCPF->Focus();
-		return;
-	}
-	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE WHERE CPF = '" + this->tstId->Text + "';", con);
+
+	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE WHERE (CPF = '" + this->tstId->Text + "' OR CLI_ID = '" + this->tstId->Text + "');", con);
 
 	try
 	{
