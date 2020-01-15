@@ -139,10 +139,10 @@
     <ClCompile Include="casa.cpp" />
     <ClCompile Include="Clientes.cpp" />
     <ClCompile Include="CreateForm.cpp" />
+    <ClCompile Include="DevolverAluguel.cpp" />
     <ClCompile Include="Filmes.cpp" />
     <ClCompile Include="ListarCliente.cpp" />
     <ClCompile Include="ListarClientes.cpp" />
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainForm.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -158,13 +158,13 @@
     <ClInclude Include="CreateForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="DevolverAluguel.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Filmes.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ListarClientes.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Main.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MainForm.h">
@@ -184,14 +184,14 @@
     <EmbeddedResource Include="CreateForm.resx">
       <DependentUpon>CreateForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DevolverAluguel.resx">
+      <DependentUpon>DevolverAluguel.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Filmes.resx">
       <DependentUpon>Filmes.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListarClientes.resx">
       <DependentUpon>ListarClientes.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

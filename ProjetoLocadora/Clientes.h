@@ -416,19 +416,35 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 		txtNome->Focus();
 		return;
 	}
-	if (mskCPF->Text == "") {
-		MessageBox::Show("Por favor, insira um CPF.");
+	String^ _mslCPF = mskCPF->Text;
+	int x_mskCPF = _mslCPF->Length;
+	if (x_mskCPF < 14) {
+		MessageBox::Show("Por favor, insira um CPF válido.");
 		mskCPF->Focus();
 		return;
 	}
-	if (mskCEP->Text == "") {
-		MessageBox::Show("Por favor, informe o CEP.");
+	String^ _mslCEP = mskCEP->Text;
+	int x_mskCEP = _mslCEP->Length;
+	if (x_mskCEP < 9) {
+		MessageBox::Show("Por favor, informe um CEP válido.");
 		mskCEP->Focus();
 		return;
 	}
-	if (mskTelefone->Text == "") {
+	String^ _mskTelefone = mskTelefone->Text;
+	int x_mskTelefone = _mskTelefone->Length;
+	if (x_mskTelefone < 15) {
 		MessageBox::Show("Por favor, informe um número de telefone.");
 		mskTelefone->Focus();
+		return;
+	}
+	if (txtCidade->Text == "") {
+		MessageBox::Show("Por favor, informe a cidade.");
+		txtCidade->Focus();
+		return;
+	}
+	if (txtEmail->Text == "") {
+		MessageBox::Show("Por favor, informe o email");
+		txtEmail->Focus();
 		return;
 	}
 
@@ -453,7 +469,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	}
 	else //registro existente é atualizado apenas
 	{
-		cmd = gcnew MySqlCommand(" UPDATE LOCADORADB.CLIENTE SET NOME = '" + this->txtNome->Text + "', CPF = '" + this->mskCPF->Text + "', ENDERECO = '" + this->txtEndereco->Text + "', CEP = '" + this->mskCEP->Text + "', CIDADE = '" + this->txtCidade->Text + "', TELEFONE = '" + this->mskTelefone->Text + "', EMAIL = '" + this->txtEmail->Text + "' WHERE ID = '" + this->txtId->Text + "' ;", con);
+		cmd = gcnew MySqlCommand(" UPDATE LOCADORADB.CLIENTE SET NOME = '" + this->txtNome->Text + "', CPF = '" + this->mskCPF->Text + "', ENDERECO = '" + this->txtEndereco->Text + "', CEP = '" + this->mskCEP->Text + "', CIDADE = '" + this->txtCidade->Text + "', TELEFONE = '" + this->mskTelefone->Text + "', EMAIL = '" + this->txtEmail->Text + "' WHERE CLI_ID = '" + this->txtId->Text + "' ;", con);
 		con->Open();
 		try
 		{
@@ -517,7 +533,7 @@ private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventAr
 	txtEmail->Text = "";
 }
 private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArgs^  e) {
-	cmd = gcnew MySqlCommand(" DELETE FROM LOCADORADB.CLIENTE WHERE ID = '" + this->txtId->Text + "' ;", con);
+	cmd = gcnew MySqlCommand(" DELETE FROM LOCADORADB.CLIENTE WHERE CLI_ID = '" + this->txtId->Text + "' ;", con);
 
 	con->Open();
 
@@ -551,18 +567,30 @@ private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArg
 	txtEmail->Enabled = false;
 	txtId->Text = "";
 	txtNome->Text = "";
+	mskCPF->Text = "";
 	txtEndereco->Text = "";
 	mskCEP->Text = "";
 	txtCidade->Text = "";
 	mskTelefone->Text = "";
 	txtEmail->Text = "";
 }
-private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs^  e) { //retorna o registro com o Id informado
-	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE WHERE CPF= '" + this->tstId->Text + "';", con);
-	con->Open();
+private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs^  e) {
+	//if (tstId->Text == "") {
+	//	tstId->Focus();
+	//	return;
+	//}
+	String^ _mslCPF = mskCPF->Text;
+	int x_mskCPF = _mslCPF->Length;
+	if (x_mskCPF < 14) {
+		MessageBox::Show("Por favor, insira um CPF válido.");
+		mskCPF->Focus();
+		return;
+	}
+	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE WHERE CPF = '" + this->tstId->Text + "';", con);
 
 	try
 	{
+		con->Open();
 		reader = cmd->ExecuteReader(); //armazena conteúdo do obj cmd
 		if (reader->Read()) //testa se há registros
 		{
@@ -606,5 +634,6 @@ private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs
 
 	tstId->Text = "";
 }
+
 };
 }

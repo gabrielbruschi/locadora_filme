@@ -19,7 +19,9 @@ namespace ProjetoLocadora {
 		MySqlCommand^ cmd;
 		MySqlDataReader^ reader;
 	private: System::Windows::Forms::MaskedTextBox^  mskAno;
-	private: System::Windows::Forms::MaskedTextBox^  mskAquisicao;
+
+	private: System::Windows::Forms::DateTimePicker^  dtpAquisicao;
+
 
 
 
@@ -120,7 +122,7 @@ namespace ProjetoLocadora {
 			this->cbGenero = (gcnew System::Windows::Forms::ComboBox());
 			this->txtDiretor = (gcnew System::Windows::Forms::TextBox());
 			this->mskAno = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->mskAquisicao = (gcnew System::Windows::Forms::MaskedTextBox());
+			this->dtpAquisicao = (gcnew System::Windows::Forms::DateTimePicker());
 			this->toolStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -287,7 +289,7 @@ namespace ProjetoLocadora {
 			this->cbGenero->Location = System::Drawing::Point(12, 155);
 			this->cbGenero->Name = L"cbGenero";
 			this->cbGenero->Size = System::Drawing::Size(179, 28);
-			this->cbGenero->TabIndex = 33;
+			this->cbGenero->TabIndex = 26;
 			// 
 			// txtDiretor
 			// 
@@ -295,7 +297,7 @@ namespace ProjetoLocadora {
 			this->txtDiretor->Location = System::Drawing::Point(254, 157);
 			this->txtDiretor->Name = L"txtDiretor";
 			this->txtDiretor->Size = System::Drawing::Size(441, 26);
-			this->txtDiretor->TabIndex = 34;
+			this->txtDiretor->TabIndex = 27;
 			// 
 			// mskAno
 			// 
@@ -303,23 +305,26 @@ namespace ProjetoLocadora {
 			this->mskAno->Mask = L"0000";
 			this->mskAno->Name = L"mskAno";
 			this->mskAno->Size = System::Drawing::Size(63, 26);
-			this->mskAno->TabIndex = 38;
+			this->mskAno->TabIndex = 28;
 			// 
-			// mskAquisicao
+			// dtpAquisicao
 			// 
-			this->mskAquisicao->Location = System::Drawing::Point(254, 242);
-			this->mskAquisicao->Mask = L"00/00/0000";
-			this->mskAquisicao->Name = L"mskAquisicao";
-			this->mskAquisicao->Size = System::Drawing::Size(116, 26);
-			this->mskAquisicao->TabIndex = 39;
-			this->mskAquisicao->ValidatingType = System::DateTime::typeid;
+			this->dtpAquisicao->CustomFormat = L"yyyy/MM/dd";
+			this->dtpAquisicao->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
+			this->dtpAquisicao->Location = System::Drawing::Point(254, 240);
+			this->dtpAquisicao->MaxDate = System::DateTime(2025, 1, 1, 0, 0, 0, 0);
+			this->dtpAquisicao->MinDate = System::DateTime(1999, 6, 15, 0, 0, 0, 0);
+			this->dtpAquisicao->Name = L"dtpAquisicao";
+			this->dtpAquisicao->RightToLeft = System::Windows::Forms::RightToLeft::No;
+			this->dtpAquisicao->Size = System::Drawing::Size(154, 26);
+			this->dtpAquisicao->TabIndex = 29;
 			// 
 			// Filmes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(854, 313);
-			this->Controls->Add(this->mskAquisicao);
+			this->Controls->Add(this->dtpAquisicao);
 			this->Controls->Add(this->mskAno);
 			this->Controls->Add(this->txtDiretor);
 			this->Controls->Add(this->cbGenero);
@@ -355,7 +360,8 @@ namespace ProjetoLocadora {
 		cbGenero->Enabled = false;
 		txtDiretor->Enabled = false;
 		mskAno->Enabled = false;
-		mskAquisicao->Enabled = false;
+		dtpAquisicao->Enabled = false;
+		tstId->Focus();
 	}
 private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^  e) {
 	tsbNovo->Enabled = false;
@@ -369,7 +375,7 @@ private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^ 
 	cbGenero->Enabled = true;
 	txtDiretor->Enabled = true;
 	mskAno->Enabled = true;
-	mskAquisicao->Enabled = true;
+	dtpAquisicao->Enabled = true;
 	txtTitulo->Focus();
 	novo = true;
 }
@@ -389,16 +395,18 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 		txtDiretor->Focus();
 		return;
 	}
+	
 
-	if (novo) //testa para ver se já existe o registro
+	if (novo)
 	{
-		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.FILME (TITULO, GENERO, DIRETOR, ANO, DATA_AQUISICAO ) VALUES('" + this->txtTitulo->Text + "', '" + this->cbGenero->Text + "', '" + this->txtDiretor->Text + "', '" + this->mskAno->Text + "', '" + this->mskAquisicao->Text + "') ", con);
-		con->Open();
+		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.FILME (TITULO, GENERO, DIRETOR, ANO, DATA_AQUISICAO ) VALUES('" + this->txtTitulo->Text + "', '" + this->cbGenero->Text + "', '" + this->txtDiretor->Text + "', '" + this->mskAno->Text + "', '" + this->dtpAquisicao->Text + "') ", con);
+
 		try
 		{
+			con->Open();
 			int i = cmd->ExecuteNonQuery();
-			if (i > 0) //se sim, registro concluido com sucesso
-				MessageBox::Show(txtTitulo->Text + ".	Cadastrado com sucesso!");
+			if (i > 0)
+				MessageBox::Show("Filme " + txtTitulo->Text + " Cadastrado com sucesso!");
 		}
 		catch (Exception^ex)
 		{
@@ -435,7 +443,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 			con->Close();
 		}
 
-		//ADD STATUS
+		//Adiciona o filme na table STATUS informando que esta disponivel
 		String^ _disponivel = "DISPONIVEL";
 		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.STATUS (FIL_ID, DISPONIVEL)  VALUES('" + temp_fil_id + "', '" + _disponivel + "') ", con);
 		try
@@ -452,15 +460,15 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 			con->Close();
 		}
 	}
-	else //registro existente é atualizado apenas
+	else
 	{
-		cmd = gcnew MySqlCommand("UPDATE LOCADORADB.FILME SET TITULO = '" + this->txtTitulo->Text + "', GENERO = '" + this->cbGenero->Text + "', DIRETOR = '" + this->txtDiretor->Text + "', ANO = '" + this->mskAno->Text + "', DATA_AQUISICAO = '" + this->mskAquisicao->Text + "' WHERE FIL_ID = '" + this->txtId->Text + "' ;", con);
+		cmd = gcnew MySqlCommand("UPDATE LOCADORADB.FILME SET TITULO = '" + this->txtTitulo->Text + "', GENERO = '" + this->cbGenero->Text + "', DIRETOR = '" + this->txtDiretor->Text + "', ANO = '" + this->mskAno->Text + "', DATA_AQUISICAO = '" + this->dtpAquisicao->Text + "' WHERE FIL_ID = '" + this->txtId->Text + "' ;", con);
 		con->Open();
 		try
 		{
 			int i = cmd->ExecuteNonQuery();
-			if (i > 0) //se sim, registro concluido com sucesso
-				MessageBox::Show("Filme: " + txtTitulo->Text + " atualizado com sucesso!");
+			if (i > 0)
+				MessageBox::Show("Filme " + txtTitulo->Text + " atualizado com sucesso!");
 		}
 		catch (Exception^ex)
 		{
@@ -482,13 +490,13 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	cbGenero->Enabled = false;
 	txtDiretor->Enabled = false;
 	mskAno->Enabled = false;
-	mskAquisicao->Enabled = false;
+	dtpAquisicao->Enabled = false;
 	txtId->Text = "";
 	txtTitulo->Text = "";
 	cbGenero->Text = "";
 	txtDiretor->Text = "";
 	mskAno->Text = "";
-	mskAquisicao->Text = "";
+	dtpAquisicao->Text = "";
 }
 private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventArgs^  e) {
 	tsbNovo->Enabled = true;
@@ -501,13 +509,13 @@ private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventAr
 	cbGenero->Enabled = false;
 	txtDiretor->Enabled = false;
 	mskAno->Enabled = false;
-	mskAquisicao->Enabled = false;
+	dtpAquisicao->Enabled = false;
 	txtId->Text = "";
 	txtTitulo->Text = "";
 	cbGenero->Text = "";
 	txtDiretor->Text = "";
 	mskAno->Text = "";
-	mskAquisicao->Text = "";
+	dtpAquisicao->Text = "";
 }
 private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArgs^  e) {
 	cmd = gcnew MySqlCommand("DELETE FROM LOCADORADB.FILME, LOCADORADB.STATUS USING LOCADORADB.FILME INNER JOIN LOCADORADB.STATUS WHERE LOCADORADB.FILME.FIL_ID = LOCADORADB.STATUS.FIL_ID AND LOCADORADB.FILME.FIL_ID = '" + this->txtId->Text + "' AND LOCADORADB.STATUS.FIL_ID = '" + this->txtId->Text + "' ;", con);
@@ -538,15 +546,20 @@ private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArg
 	cbGenero->Enabled = false;
 	txtDiretor->Enabled = false;
 	mskAno->Enabled = false;
-	mskAquisicao->Enabled = false;
+	dtpAquisicao->Enabled = false;
 	txtId->Text = "";
 	txtTitulo->Text = "";
 	cbGenero->Text = "";
 	txtDiretor->Text = "";
 	mskAno->Text = "";
-	mskAquisicao->Text = "";
+	dtpAquisicao->Text = "";
 }
 private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs^  e) {
+	if (tstId->Text == "") {
+		tstId->Focus();
+		return;
+	}
+
 	cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.FILME WHERE TITULO= '" + this->tstId->Text + "';", con);
 	con->Open();
 
@@ -565,19 +578,19 @@ private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs
 			cbGenero->Enabled = true;
 			txtDiretor->Enabled = true;
 			mskAno->Enabled = true;
-			mskAquisicao->Enabled = true;
+			dtpAquisicao->Enabled = true;
 			txtTitulo->Focus();
 			txtId->Text = reader[0]->ToString();
 			txtTitulo->Text = reader[1]->ToString();
 			cbGenero->Text = reader[2]->ToString();
 			txtDiretor->Text = reader[3]->ToString();
 			mskAno->Text = reader[4]->ToString();
-			mskAquisicao->Text = reader[5]->ToString();
+			dtpAquisicao->Text = reader[5]->ToString();
 
 			novo = false;
 		}
 		else
-			MessageBox::Show("Nenhum registro encontrado com o Id informado!");
+			MessageBox::Show("Nenhum filme encontrado com o título informado!");
 
 	}
 	catch (Exception^ex)

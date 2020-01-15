@@ -2,9 +2,9 @@
   ProjetoLocadora.casa.resources - Embedded, ContainedInManifestFile, 
   ProjetoLocadora.Clientes.resources - Embedded, ContainedInManifestFile, 
   ProjetoLocadora.CreateForm.resources - Embedded, ContainedInManifestFile, 
+  ProjetoLocadora.DevolverAluguel.resources - Embedded, ContainedInManifestFile, 
   ProjetoLocadora.Filmes.resources - Embedded, ContainedInManifestFile, 
   ProjetoLocadora.ListarClientes.resources - Embedded, ContainedInManifestFile, 
-  ProjetoLocadora.MainForm.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly ProjetoLocadora, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -36,6 +36,9 @@ Class ProjetoLocadora.Filmes: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
 Class ProjetoLocadora.Clientes: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class ProjetoLocadora.DevolverAluguel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ProjetoLocadora.casa: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -48,9 +51,6 @@ Class ProjetoLocadora.CreateForm: AutoLayout, AnsiClass, Class, Public, BeforeFi
     MySql.Data.MySqlClient.MySqlCommand cmdDataBase : Public
     MySql.Data.MySqlClient.MySqlDataReader myReader : Public
     MySql.Data.MySqlClient.MySqlDataAdapter adapt IsByValue : Public, InitOnly
-Class ProjetoLocadora.Main: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ProjetoLocadora.MainForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
