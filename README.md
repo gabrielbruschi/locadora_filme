@@ -1,30 +1,40 @@
 # Locadora de filmes
-> Sistema de locação de filmes utilizando a IDE Visual Studio com a linguagem c++.
+> Sistema de Informação para Vídeo Locadoras utilizando a IDE Visual Studio com a linguagem c++.
 
-One to two paragraph statement about your product and what it does.
+O sistema de informações para video locadora apresenta recursos importantes para a manipulação de aluguéis e devoluções dos filmes.
+O software realiza o cadastro, atualização e exclusão de clientes e filmes. Todos esses recursos tem sua utilização simplificada para que o cliente não encontre dificuldades.
+Na tela inicial os filmes do catálogo são exibidos. Há possibilidade de selecionar o que será visto na grade.
 
 ![](header.png)
 
-## Installation
+## Instalação
+Clone o repositório
 
-OS X & Linux:
+```git clone https://github.com/gabrielbruschi/locadora_filme```
 
-```sh
-npm install my-crazy-module --save
-```
+Entre na pasta clonada
 
-Windows:
+```cd ProjetoLocadora/```
 
-```sh
-edit autoexec.bat
-```
 
-## Usage example
+O arquivo ``locadoradb.sql`` deve ser adicionado ao banco de dados com nome "locadoradb".
+Em testes utilizei o ``XAMPP`` como sendo o servidor independente, com os parâmetros:
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+```datasource=localhost; port=3306; username=root```
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
 
+
+## Solução de erros comuns
+
+Caso venha a encontrar com os seguintes erros:
+
+```LINK : fatal error LNK1561: entry point must be defined ERROR IN VC++```
+
+Defina o valor do 'entry point' para "Main". Como nesta [imagem].
+
+```LINK : fatal error LNK1221: a subsystem can't be inferred and must be defined```
+
+Defina o valor do 'SubSystem' para "SUBSYSTEM:WINDOWS". Como nesta [imagem.]
 
 ## Meta
 
@@ -34,7 +44,7 @@ Distributed under the GPL-3.0 license. See ``LICENSE`` for more information.
 
 [https://github.com/gabrielbruschi/locadora_filme](https://github.com/gabrielbruschi/)
 
-## Contributing
+## Contribuição
 
 1. Fork it (<https://github.com/gabrielbruschi/locadora_filme>)
 
@@ -47,3 +57,5 @@ Distributed under the GPL-3.0 license. See ``LICENSE`` for more information.
 [wiki]: https://github.com/yourname/yourproject/wiki
 [LICENSE]: https://github.com/gabrielbruschi/ChatBotGrace/blob/master/LICENSE
 
+[imagem]: https://i.stack.imgur.com/LojLc.png
+[imagem.]: https://i.stack.imgur.com/G7lJg.png
