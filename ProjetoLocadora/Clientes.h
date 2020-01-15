@@ -23,6 +23,7 @@ namespace ProjetoLocadora {
 	private: System::Windows::Forms::MaskedTextBox^  mskCPF;
 
 	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::GroupBox^  groupBox1;
 
 		bool novo;
 
@@ -122,7 +123,9 @@ namespace ProjetoLocadora {
 			this->mskTelefone = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->mskCPF = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->toolStrip1->SuspendLayout();
+			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// toolStrip1
@@ -134,17 +137,16 @@ namespace ProjetoLocadora {
 			});
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(838, 31);
+			this->toolStrip1->Size = System::Drawing::Size(1078, 32);
 			this->toolStrip1->TabIndex = 0;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
 			// tsbNovo
 			// 
-			this->tsbNovo->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
 			this->tsbNovo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbNovo.Image")));
 			this->tsbNovo->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbNovo->Name = L"tsbNovo";
-			this->tsbNovo->Size = System::Drawing::Size(28, 28);
+			this->tsbNovo->Size = System::Drawing::Size(84, 29);
 			this->tsbNovo->Text = L"Novo";
 			this->tsbNovo->Click += gcnew System::EventHandler(this, &Clientes::tsbNovo_Click);
 			// 
@@ -154,7 +156,7 @@ namespace ProjetoLocadora {
 			this->tsbSalvar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbSalvar.Image")));
 			this->tsbSalvar->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbSalvar->Name = L"tsbSalvar";
-			this->tsbSalvar->Size = System::Drawing::Size(28, 28);
+			this->tsbSalvar->Size = System::Drawing::Size(28, 29);
 			this->tsbSalvar->Text = L"Salvar";
 			this->tsbSalvar->Click += gcnew System::EventHandler(this, &Clientes::tsbSalvar_Click);
 			// 
@@ -164,7 +166,7 @@ namespace ProjetoLocadora {
 			this->tsbCancelar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbCancelar.Image")));
 			this->tsbCancelar->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbCancelar->Name = L"tsbCancelar";
-			this->tsbCancelar->Size = System::Drawing::Size(28, 28);
+			this->tsbCancelar->Size = System::Drawing::Size(28, 29);
 			this->tsbCancelar->Text = L"Cancelar";
 			this->tsbCancelar->Click += gcnew System::EventHandler(this, &Clientes::tsbCancelar_Click);
 			// 
@@ -174,25 +176,25 @@ namespace ProjetoLocadora {
 			this->tsbExcluir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbExcluir.Image")));
 			this->tsbExcluir->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbExcluir->Name = L"tsbExcluir";
-			this->tsbExcluir->Size = System::Drawing::Size(28, 28);
+			this->tsbExcluir->Size = System::Drawing::Size(28, 29);
 			this->tsbExcluir->Text = L"Remover";
 			this->tsbExcluir->Click += gcnew System::EventHandler(this, &Clientes::tsbExcluir_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this->toolStripSeparator1->Name = L"toolStripSeparator1";
-			this->toolStripSeparator1->Size = System::Drawing::Size(6, 31);
+			this->toolStripSeparator1->Size = System::Drawing::Size(6, 32);
 			// 
 			// tsbBuscaPorId
 			// 
 			this->tsbBuscaPorId->Name = L"tsbBuscaPorId";
-			this->tsbBuscaPorId->Size = System::Drawing::Size(131, 28);
+			this->tsbBuscaPorId->Size = System::Drawing::Size(131, 29);
 			this->tsbBuscaPorId->Text = L"Buscar por CPF";
 			// 
 			// tstId
 			// 
 			this->tstId->Name = L"tstId";
-			this->tstId->Size = System::Drawing::Size(140, 31);
+			this->tstId->Size = System::Drawing::Size(140, 32);
 			// 
 			// tsbBuscar
 			// 
@@ -200,14 +202,14 @@ namespace ProjetoLocadora {
 			this->tsbBuscar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbBuscar.Image")));
 			this->tsbBuscar->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbBuscar->Name = L"tsbBuscar";
-			this->tsbBuscar->Size = System::Drawing::Size(28, 28);
+			this->tsbBuscar->Size = System::Drawing::Size(28, 29);
 			this->tsbBuscar->Text = L"Buscar";
 			this->tsbBuscar->Click += gcnew System::EventHandler(this, &Clientes::tsbBuscar_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(13, 59);
+			this->label1->Location = System::Drawing::Point(87, 49);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(23, 20);
 			this->label1->TabIndex = 1;
@@ -216,7 +218,7 @@ namespace ProjetoLocadora {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(125, 59);
+			this->label2->Location = System::Drawing::Point(199, 49);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(51, 20);
 			this->label2->TabIndex = 2;
@@ -225,7 +227,7 @@ namespace ProjetoLocadora {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 283);
+			this->label3->Location = System::Drawing::Point(86, 273);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(78, 20);
 			this->label3->TabIndex = 3;
@@ -234,7 +236,7 @@ namespace ProjetoLocadora {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(640, 136);
+			this->label4->Location = System::Drawing::Point(714, 126);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(41, 20);
 			this->label4->TabIndex = 4;
@@ -243,7 +245,7 @@ namespace ProjetoLocadora {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(640, 214);
+			this->label5->Location = System::Drawing::Point(714, 204);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(71, 20);
 			this->label5->TabIndex = 5;
@@ -252,7 +254,7 @@ namespace ProjetoLocadora {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(216, 136);
+			this->label6->Location = System::Drawing::Point(290, 126);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(48, 20);
 			this->label6->TabIndex = 6;
@@ -260,7 +262,7 @@ namespace ProjetoLocadora {
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(17, 91);
+			this->txtId->Location = System::Drawing::Point(91, 81);
 			this->txtId->Name = L"txtId";
 			this->txtId->Size = System::Drawing::Size(74, 26);
 			this->txtId->TabIndex = 7;
@@ -268,7 +270,7 @@ namespace ProjetoLocadora {
 			// txtNome
 			// 
 			this->txtNome->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->txtNome->Location = System::Drawing::Point(129, 91);
+			this->txtNome->Location = System::Drawing::Point(203, 81);
 			this->txtNome->MaxLength = 50;
 			this->txtNome->Name = L"txtNome";
 			this->txtNome->Size = System::Drawing::Size(680, 26);
@@ -277,7 +279,7 @@ namespace ProjetoLocadora {
 			// txtEndereco
 			// 
 			this->txtEndereco->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->txtEndereco->Location = System::Drawing::Point(17, 306);
+			this->txtEndereco->Location = System::Drawing::Point(91, 296);
 			this->txtEndereco->MaxLength = 50;
 			this->txtEndereco->Name = L"txtEndereco";
 			this->txtEndereco->Size = System::Drawing::Size(792, 26);
@@ -285,7 +287,7 @@ namespace ProjetoLocadora {
 			// 
 			// txtEmail
 			// 
-			this->txtEmail->Location = System::Drawing::Point(220, 159);
+			this->txtEmail->Location = System::Drawing::Point(294, 149);
 			this->txtEmail->MaxLength = 50;
 			this->txtEmail->Name = L"txtEmail";
 			this->txtEmail->Size = System::Drawing::Size(363, 26);
@@ -294,7 +296,7 @@ namespace ProjetoLocadora {
 			// txtCidade
 			// 
 			this->txtCidade->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->txtCidade->Location = System::Drawing::Point(17, 237);
+			this->txtCidade->Location = System::Drawing::Point(91, 227);
 			this->txtCidade->MaxLength = 50;
 			this->txtCidade->Name = L"txtCidade";
 			this->txtCidade->Size = System::Drawing::Size(503, 26);
@@ -303,7 +305,7 @@ namespace ProjetoLocadora {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(12, 214);
+			this->label7->Location = System::Drawing::Point(86, 204);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(59, 20);
 			this->label7->TabIndex = 14;
@@ -311,7 +313,7 @@ namespace ProjetoLocadora {
 			// 
 			// mskCEP
 			// 
-			this->mskCEP->Location = System::Drawing::Point(644, 159);
+			this->mskCEP->Location = System::Drawing::Point(718, 149);
 			this->mskCEP->Mask = L"00000-999";
 			this->mskCEP->Name = L"mskCEP";
 			this->mskCEP->Size = System::Drawing::Size(89, 26);
@@ -319,7 +321,7 @@ namespace ProjetoLocadora {
 			// 
 			// mskTelefone
 			// 
-			this->mskTelefone->Location = System::Drawing::Point(644, 237);
+			this->mskTelefone->Location = System::Drawing::Point(718, 227);
 			this->mskTelefone->Mask = L"(99) 00000-0000";
 			this->mskTelefone->Name = L"mskTelefone";
 			this->mskTelefone->Size = System::Drawing::Size(131, 26);
@@ -327,7 +329,7 @@ namespace ProjetoLocadora {
 			// 
 			// mskCPF
 			// 
-			this->mskCPF->Location = System::Drawing::Point(17, 159);
+			this->mskCPF->Location = System::Drawing::Point(91, 149);
 			this->mskCPF->Mask = L"000.000.000-00";
 			this->mskCPF->Name = L"mskCPF";
 			this->mskCPF->Size = System::Drawing::Size(131, 26);
@@ -336,40 +338,56 @@ namespace ProjetoLocadora {
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(12, 136);
+			this->label8->Location = System::Drawing::Point(86, 126);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(40, 20);
 			this->label8->TabIndex = 16;
 			this->label8->Text = L"CPF";
 			// 
+			// groupBox1
+			// 
+			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->txtId);
+			this->groupBox1->Controls->Add(this->label8);
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Controls->Add(this->mskCPF);
+			this->groupBox1->Controls->Add(this->label2);
+			this->groupBox1->Controls->Add(this->mskTelefone);
+			this->groupBox1->Controls->Add(this->label3);
+			this->groupBox1->Controls->Add(this->mskCEP);
+			this->groupBox1->Controls->Add(this->label4);
+			this->groupBox1->Controls->Add(this->label7);
+			this->groupBox1->Controls->Add(this->label5);
+			this->groupBox1->Controls->Add(this->txtCidade);
+			this->groupBox1->Controls->Add(this->label6);
+			this->groupBox1->Controls->Add(this->txtEmail);
+			this->groupBox1->Controls->Add(this->txtNome);
+			this->groupBox1->Controls->Add(this->txtEndereco);
+			this->groupBox1->Location = System::Drawing::Point(58, 54);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(941, 365);
+			this->groupBox1->TabIndex = 17;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Cliente";
+			// 
 			// Clientes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(838, 357);
-			this->Controls->Add(this->label8);
-			this->Controls->Add(this->mskCPF);
-			this->Controls->Add(this->mskTelefone);
-			this->Controls->Add(this->mskCEP);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->txtCidade);
-			this->Controls->Add(this->txtEmail);
-			this->Controls->Add(this->txtEndereco);
-			this->Controls->Add(this->txtNome);
-			this->Controls->Add(this->txtId);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->ClientSize = System::Drawing::Size(1078, 483);
+			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->toolStrip1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Clientes";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Clientes";
+			this->Text = L"VIDEO LOCADORA - CLIENTE";
 			this->Load += gcnew System::EventHandler(this, &Clientes::Clientes_Load);
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 

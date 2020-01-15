@@ -19,14 +19,17 @@ namespace ProjetoLocadora {
 		MySqlConnection^ con = gcnew MySqlConnection(constring);
 		MySqlCommand^ cmd;
 		MySqlDataReader^ reader;
-	private: System::Windows::Forms::ColumnHeader^  clmId;
-	private: System::Windows::Forms::ColumnHeader^  clmNome;
-	private: System::Windows::Forms::ColumnHeader^  clmCpf;
-	private: System::Windows::Forms::ColumnHeader^  clmeEmail;
-	private: System::Windows::Forms::ColumnHeader^  clmCep;
-	private: System::Windows::Forms::ColumnHeader^  clmCidade;
-	private: System::Windows::Forms::ColumnHeader^  clmTelefone;
-	private: System::Windows::Forms::ColumnHeader^  clmEndereco;
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::GroupBox^  groupBox1;
+	private: System::Windows::Forms::Button^  btnFechar;
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
 
 		bool novo;
 
@@ -50,7 +53,7 @@ namespace ProjetoLocadora {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::ListView^  lstCliente;
+
 	protected:
 
 	private:
@@ -66,87 +69,76 @@ namespace ProjetoLocadora {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->lstCliente = (gcnew System::Windows::Forms::ListView());
-			this->clmId = (gcnew System::Windows::Forms::ColumnHeader());
-			this->clmNome = (gcnew System::Windows::Forms::ColumnHeader());
-			this->clmCpf = (gcnew System::Windows::Forms::ColumnHeader());
-			this->clmeEmail = (gcnew System::Windows::Forms::ColumnHeader());
-			this->clmCep = (gcnew System::Windows::Forms::ColumnHeader());
-			this->clmCidade = (gcnew System::Windows::Forms::ColumnHeader());
-			this->clmTelefone = (gcnew System::Windows::Forms::ColumnHeader());
-			this->clmEndereco = (gcnew System::Windows::Forms::ColumnHeader());
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(ListarClientes::typeid));
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->btnFechar = (gcnew System::Windows::Forms::Button());
+			this->groupBox1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
-			// lstCliente
+			// groupBox1
 			// 
-			this->lstCliente->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(8) {
-				this->clmId, this->clmNome,
-					this->clmCpf, this->clmeEmail, this->clmCep, this->clmCidade, this->clmTelefone, this->clmEndereco
-			});
-			this->lstCliente->HideSelection = false;
-			this->lstCliente->Location = System::Drawing::Point(24, 12);
-			this->lstCliente->Name = L"lstCliente";
-			this->lstCliente->Size = System::Drawing::Size(1175, 377);
-			this->lstCliente->TabIndex = 0;
-			this->lstCliente->UseCompatibleStateImageBehavior = false;
-			this->lstCliente->View = System::Windows::Forms::View::Details;
+			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->dataGridView1);
+			this->groupBox1->Controls->Add(this->btnFechar);
+			this->groupBox1->Location = System::Drawing::Point(12, 12);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(1189, 493);
+			this->groupBox1->TabIndex = 1;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Lista de Clientes";
+			this->groupBox1->Enter += gcnew System::EventHandler(this, &ListarClientes::groupBox1_Enter);
 			// 
-			// clmId
+			// dataGridView1
 			// 
-			this->clmId->Text = L"ID";
-			this->clmId->Width = 40;
+			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::White;
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Location = System::Drawing::Point(20, 25);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->ReadOnly = true;
+			this->dataGridView1->RowHeadersVisible = false;
+			this->dataGridView1->RowTemplate->Height = 28;
+			this->dataGridView1->Size = System::Drawing::Size(1146, 393);
+			this->dataGridView1->TabIndex = 80;
 			// 
-			// clmNome
+			// btnFechar
 			// 
-			this->clmNome->Text = L"Nome";
-			this->clmNome->Width = 195;
-			// 
-			// clmCpf
-			// 
-			this->clmCpf->Text = L"CPF";
-			this->clmCpf->Width = 118;
-			// 
-			// clmeEmail
-			// 
-			this->clmeEmail->Text = L"Email";
-			this->clmeEmail->Width = 149;
-			// 
-			// clmCep
-			// 
-			this->clmCep->Text = L"CEP";
-			this->clmCep->Width = 109;
-			// 
-			// clmCidade
-			// 
-			this->clmCidade->Text = L"Cidade";
-			this->clmCidade->Width = 132;
-			// 
-			// clmTelefone
-			// 
-			this->clmTelefone->Text = L"Telefone";
-			this->clmTelefone->Width = 124;
-			// 
-			// clmEndereco
-			// 
-			this->clmEndereco->Text = L"Endereço";
-			this->clmEndereco->Width = 171;
+			this->btnFechar->Location = System::Drawing::Point(1064, 445);
+			this->btnFechar->Name = L"btnFechar";
+			this->btnFechar->Size = System::Drawing::Size(102, 42);
+			this->btnFechar->TabIndex = 1;
+			this->btnFechar->Text = L"Fechar";
+			this->btnFechar->UseVisualStyleBackColor = true;
+			this->btnFechar->Click += gcnew System::EventHandler(this, &ListarClientes::btnFechar_Click);
 			// 
 			// ListarClientes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1225, 465);
-			this->Controls->Add(this->lstCliente);
-			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::SizableToolWindow;
+			this->ClientSize = System::Drawing::Size(1225, 526);
+			this->Controls->Add(this->groupBox1);
+			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"ListarClientes";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Clientes Cadastrados";
+			this->Text = L"VIDEO LOCADORA - CLIENTES CADASTRADOS";
 			this->Load += gcnew System::EventHandler(this, &ListarClientes::ListarClientes_Load);
+			this->groupBox1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void ListarClientes_Load(System::Object^  sender, System::EventArgs^  e) {
+		ListarDtGridView();
+		/*
 		cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE ;", con);
 
 		try
@@ -156,7 +148,7 @@ namespace ProjetoLocadora {
 				
 				while (reader->Read()) {
 
-					ListViewItem^ item = gcnew ListViewItem(reader["ID"]->ToString());
+					ListViewItem^ item = gcnew ListViewItem(reader["CLI_ID"]->ToString());
 					item->SubItems->Add(reader["NOME"]->ToString());
 					item->SubItems->Add(reader["CPF"]->ToString());
 					item->SubItems->Add(reader["EMAIL"]->ToString());
@@ -176,6 +168,44 @@ namespace ProjetoLocadora {
 		{
 			con->Close();
 		}
+
+		*/
 	}
-	};
+
+	private: void ListarDtGridView() {
+		cmd = gcnew MySqlCommand("SELECT * FROM LOCADORADB.CLIENTE ;", con);
+
+		try
+		{
+			con->Open();
+
+			MySqlDataAdapter^ sda = gcnew MySqlDataAdapter();
+			sda->SelectCommand = cmd;
+			DataTable^ dbdataset = gcnew DataTable();
+			sda->Fill(dbdataset);
+			BindingSource^ bSource = gcnew BindingSource();
+
+			bSource->DataSource = dbdataset;
+			dataGridView1->DataSource = bSource;
+			sda->Update(dbdataset);
+
+
+			reader = cmd->ExecuteReader();
+		}
+		catch (Exception^ex)
+		{
+			MessageBox::Show("Erro: " + ex->Message);
+		}
+		finally
+		{
+			con->Close();
+		}
+	}
+
+	private: System::Void btnFechar_Click(System::Object^  sender, System::EventArgs^  e) {
+		this->Close();
+	}
+private: System::Void groupBox1_Enter(System::Object^  sender, System::EventArgs^  e) {
+}
+};
 }

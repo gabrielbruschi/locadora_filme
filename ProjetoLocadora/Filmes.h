@@ -19,8 +19,9 @@ namespace ProjetoLocadora {
 		MySqlCommand^ cmd;
 		MySqlDataReader^ reader;
 	private: System::Windows::Forms::MaskedTextBox^  mskAno;
+	private: System::Windows::Forms::GroupBox^  groupBox1;
 
-	private: System::Windows::Forms::DateTimePicker^  dtpAquisicao;
+
 
 
 
@@ -67,7 +68,7 @@ namespace ProjetoLocadora {
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::TextBox^  txtId;
 	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::Label^  label5;
+
 	private: System::Windows::Forms::Label^  label4;
 
 	private: System::Windows::Forms::Label^  label2;
@@ -106,7 +107,6 @@ namespace ProjetoLocadora {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->txtId = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -122,23 +122,24 @@ namespace ProjetoLocadora {
 			this->cbGenero = (gcnew System::Windows::Forms::ComboBox());
 			this->txtDiretor = (gcnew System::Windows::Forms::TextBox());
 			this->mskAno = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->dtpAquisicao = (gcnew System::Windows::Forms::DateTimePicker());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->toolStrip1->SuspendLayout();
+			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// txtTitulo
 			// 
 			this->txtTitulo->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->txtTitulo->Location = System::Drawing::Point(129, 71);
+			this->txtTitulo->Location = System::Drawing::Point(191, 89);
 			this->txtTitulo->MaxLength = 50;
 			this->txtTitulo->Name = L"txtTitulo";
-			this->txtTitulo->Size = System::Drawing::Size(680, 26);
+			this->txtTitulo->Size = System::Drawing::Size(646, 26);
 			this->txtTitulo->TabIndex = 25;
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(8, 216);
+			this->label7->Location = System::Drawing::Point(70, 234);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(147, 20);
 			this->label7->TabIndex = 32;
@@ -146,7 +147,7 @@ namespace ProjetoLocadora {
 			// 
 			// txtId
 			// 
-			this->txtId->Location = System::Drawing::Point(12, 71);
+			this->txtId->Location = System::Drawing::Point(74, 89);
 			this->txtId->Name = L"txtId";
 			this->txtId->ReadOnly = true;
 			this->txtId->Size = System::Drawing::Size(74, 26);
@@ -155,25 +156,16 @@ namespace ProjetoLocadora {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(12, 132);
+			this->label6->Location = System::Drawing::Point(74, 150);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(63, 20);
 			this->label6->TabIndex = 23;
 			this->label6->Text = L"Gênero";
 			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(250, 216);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(137, 20);
-			this->label5->TabIndex = 22;
-			this->label5->Text = L"Data de aquisição";
-			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(250, 132);
+			this->label4->Location = System::Drawing::Point(312, 150);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(57, 20);
 			this->label4->TabIndex = 21;
@@ -182,7 +174,7 @@ namespace ProjetoLocadora {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(125, 46);
+			this->label2->Location = System::Drawing::Point(187, 64);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(140, 20);
 			this->label2->TabIndex = 19;
@@ -191,7 +183,7 @@ namespace ProjetoLocadora {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 46);
+			this->label1->Location = System::Drawing::Point(74, 64);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(23, 20);
 			this->label1->TabIndex = 18;
@@ -206,17 +198,16 @@ namespace ProjetoLocadora {
 			});
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(854, 31);
+			this->toolStrip1->Size = System::Drawing::Size(1078, 32);
 			this->toolStrip1->TabIndex = 17;
 			this->toolStrip1->Text = L"toolStrip1";
 			// 
 			// tsbNovo
 			// 
-			this->tsbNovo->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
 			this->tsbNovo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbNovo.Image")));
 			this->tsbNovo->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbNovo->Name = L"tsbNovo";
-			this->tsbNovo->Size = System::Drawing::Size(28, 28);
+			this->tsbNovo->Size = System::Drawing::Size(84, 29);
 			this->tsbNovo->Text = L"Novo";
 			this->tsbNovo->Click += gcnew System::EventHandler(this, &Filmes::tsbNovo_Click);
 			// 
@@ -226,7 +217,7 @@ namespace ProjetoLocadora {
 			this->tsbSalvar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbSalvar.Image")));
 			this->tsbSalvar->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbSalvar->Name = L"tsbSalvar";
-			this->tsbSalvar->Size = System::Drawing::Size(28, 28);
+			this->tsbSalvar->Size = System::Drawing::Size(28, 29);
 			this->tsbSalvar->Text = L"Salvar";
 			this->tsbSalvar->Click += gcnew System::EventHandler(this, &Filmes::tsbSalvar_Click);
 			// 
@@ -236,7 +227,7 @@ namespace ProjetoLocadora {
 			this->tsbCancelar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbCancelar.Image")));
 			this->tsbCancelar->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbCancelar->Name = L"tsbCancelar";
-			this->tsbCancelar->Size = System::Drawing::Size(28, 28);
+			this->tsbCancelar->Size = System::Drawing::Size(28, 29);
 			this->tsbCancelar->Text = L"Cancelar";
 			this->tsbCancelar->Click += gcnew System::EventHandler(this, &Filmes::tsbCancelar_Click);
 			// 
@@ -246,19 +237,19 @@ namespace ProjetoLocadora {
 			this->tsbExcluir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbExcluir.Image")));
 			this->tsbExcluir->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbExcluir->Name = L"tsbExcluir";
-			this->tsbExcluir->Size = System::Drawing::Size(28, 28);
+			this->tsbExcluir->Size = System::Drawing::Size(28, 29);
 			this->tsbExcluir->Text = L"Remover";
 			this->tsbExcluir->Click += gcnew System::EventHandler(this, &Filmes::tsbExcluir_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this->toolStripSeparator1->Name = L"toolStripSeparator1";
-			this->toolStripSeparator1->Size = System::Drawing::Size(6, 31);
+			this->toolStripSeparator1->Size = System::Drawing::Size(6, 32);
 			// 
 			// tsbBuscaPorId
 			// 
 			this->tsbBuscaPorId->Name = L"tsbBuscaPorId";
-			this->tsbBuscaPorId->Size = System::Drawing::Size(149, 28);
+			this->tsbBuscaPorId->Size = System::Drawing::Size(149, 29);
 			this->tsbBuscaPorId->Text = L"Buscar por Título:";
 			// 
 			// tstId
@@ -266,7 +257,7 @@ namespace ProjetoLocadora {
 			this->tstId->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
 			this->tstId->MaxLength = 40;
 			this->tstId->Name = L"tstId";
-			this->tstId->Size = System::Drawing::Size(200, 31);
+			this->tstId->Size = System::Drawing::Size(200, 32);
 			// 
 			// tsbBuscar
 			// 
@@ -274,7 +265,7 @@ namespace ProjetoLocadora {
 			this->tsbBuscar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbBuscar.Image")));
 			this->tsbBuscar->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbBuscar->Name = L"tsbBuscar";
-			this->tsbBuscar->Size = System::Drawing::Size(28, 28);
+			this->tsbBuscar->Size = System::Drawing::Size(28, 29);
 			this->tsbBuscar->Text = L"Buscar";
 			this->tsbBuscar->Click += gcnew System::EventHandler(this, &Filmes::tsbBuscar_Click);
 			// 
@@ -286,7 +277,7 @@ namespace ProjetoLocadora {
 				L"AÇÃO", L"AVENTURA", L"ROMANCE", L"COMÉDIA", L"DRAMA",
 					L"TERROR", L"SUSPENSE", L"DOCUMENTÁRIO", L"DESENHO"
 			});
-			this->cbGenero->Location = System::Drawing::Point(12, 155);
+			this->cbGenero->Location = System::Drawing::Point(74, 173);
 			this->cbGenero->Name = L"cbGenero";
 			this->cbGenero->Size = System::Drawing::Size(179, 28);
 			this->cbGenero->TabIndex = 26;
@@ -294,55 +285,57 @@ namespace ProjetoLocadora {
 			// txtDiretor
 			// 
 			this->txtDiretor->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->txtDiretor->Location = System::Drawing::Point(254, 157);
+			this->txtDiretor->Location = System::Drawing::Point(316, 175);
 			this->txtDiretor->Name = L"txtDiretor";
-			this->txtDiretor->Size = System::Drawing::Size(441, 26);
+			this->txtDiretor->Size = System::Drawing::Size(521, 26);
 			this->txtDiretor->TabIndex = 27;
 			// 
 			// mskAno
 			// 
-			this->mskAno->Location = System::Drawing::Point(12, 242);
+			this->mskAno->Location = System::Drawing::Point(74, 260);
 			this->mskAno->Mask = L"0000";
 			this->mskAno->Name = L"mskAno";
 			this->mskAno->Size = System::Drawing::Size(63, 26);
 			this->mskAno->TabIndex = 28;
 			// 
-			// dtpAquisicao
+			// groupBox1
 			// 
-			this->dtpAquisicao->CustomFormat = L"yyyy/MM/dd";
-			this->dtpAquisicao->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dtpAquisicao->Location = System::Drawing::Point(254, 240);
-			this->dtpAquisicao->MaxDate = System::DateTime(2025, 1, 1, 0, 0, 0, 0);
-			this->dtpAquisicao->MinDate = System::DateTime(1999, 6, 15, 0, 0, 0, 0);
-			this->dtpAquisicao->Name = L"dtpAquisicao";
-			this->dtpAquisicao->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->dtpAquisicao->Size = System::Drawing::Size(154, 26);
-			this->dtpAquisicao->TabIndex = 29;
+			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->txtId);
+			this->groupBox1->Controls->Add(this->mskAno);
+			this->groupBox1->Controls->Add(this->label1);
+			this->groupBox1->Controls->Add(this->txtDiretor);
+			this->groupBox1->Controls->Add(this->label2);
+			this->groupBox1->Controls->Add(this->cbGenero);
+			this->groupBox1->Controls->Add(this->label4);
+			this->groupBox1->Controls->Add(this->txtTitulo);
+			this->groupBox1->Controls->Add(this->label6);
+			this->groupBox1->Controls->Add(this->label7);
+			this->groupBox1->Location = System::Drawing::Point(48, 64);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(945, 385);
+			this->groupBox1->TabIndex = 33;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Filme";
 			// 
 			// Filmes
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(854, 313);
-			this->Controls->Add(this->dtpAquisicao);
-			this->Controls->Add(this->mskAno);
-			this->Controls->Add(this->txtDiretor);
-			this->Controls->Add(this->cbGenero);
-			this->Controls->Add(this->txtTitulo);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->txtId);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
+			this->ClientSize = System::Drawing::Size(1078, 483);
+			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->toolStrip1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Filmes";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Filmes";
+			this->Text = L"VIDEO LOCADORA - FILME";
 			this->Load += gcnew System::EventHandler(this, &Filmes::Filmes_Load);
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -360,7 +353,6 @@ namespace ProjetoLocadora {
 		cbGenero->Enabled = false;
 		txtDiretor->Enabled = false;
 		mskAno->Enabled = false;
-		dtpAquisicao->Enabled = false;
 		tstId->Focus();
 	}
 private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -375,7 +367,6 @@ private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^ 
 	cbGenero->Enabled = true;
 	txtDiretor->Enabled = true;
 	mskAno->Enabled = true;
-	dtpAquisicao->Enabled = true;
 	txtTitulo->Focus();
 	novo = true;
 }
@@ -399,7 +390,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 
 	if (novo)
 	{
-		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.FILME (TITULO, GENERO, DIRETOR, ANO, DATA_AQUISICAO ) VALUES('" + this->txtTitulo->Text + "', '" + this->cbGenero->Text + "', '" + this->txtDiretor->Text + "', '" + this->mskAno->Text + "', '" + this->dtpAquisicao->Text + "') ", con);
+		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.FILME (TITULO, GENERO, DIRETOR, ANO) VALUES('" + this->txtTitulo->Text + "', '" + this->cbGenero->Text + "', '" + this->txtDiretor->Text + "', '" + this->mskAno->Text + "') ", con);
 
 		try
 		{
@@ -444,7 +435,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 		}
 
 		//Adiciona o filme na table STATUS informando que esta disponivel
-		String^ _disponivel = "DISPONIVEL";
+		String^ _disponivel = "SIM";
 		cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.STATUS (FIL_ID, DISPONIVEL)  VALUES('" + temp_fil_id + "', '" + _disponivel + "') ", con);
 		try
 		{
@@ -462,7 +453,7 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	}
 	else
 	{
-		cmd = gcnew MySqlCommand("UPDATE LOCADORADB.FILME SET TITULO = '" + this->txtTitulo->Text + "', GENERO = '" + this->cbGenero->Text + "', DIRETOR = '" + this->txtDiretor->Text + "', ANO = '" + this->mskAno->Text + "', DATA_AQUISICAO = '" + this->dtpAquisicao->Text + "' WHERE FIL_ID = '" + this->txtId->Text + "' ;", con);
+		cmd = gcnew MySqlCommand("UPDATE LOCADORADB.FILME SET TITULO = '" + this->txtTitulo->Text + "', GENERO = '" + this->cbGenero->Text + "', DIRETOR = '" + this->txtDiretor->Text + "', ANO = '" + this->mskAno->Text + "' WHERE FIL_ID = '" + this->txtId->Text + "' ;", con);
 		con->Open();
 		try
 		{
@@ -490,13 +481,11 @@ private: System::Void tsbSalvar_Click(System::Object^  sender, System::EventArgs
 	cbGenero->Enabled = false;
 	txtDiretor->Enabled = false;
 	mskAno->Enabled = false;
-	dtpAquisicao->Enabled = false;
 	txtId->Text = "";
 	txtTitulo->Text = "";
 	cbGenero->Text = "";
 	txtDiretor->Text = "";
 	mskAno->Text = "";
-	dtpAquisicao->Text = "";
 }
 private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventArgs^  e) {
 	tsbNovo->Enabled = true;
@@ -509,13 +498,11 @@ private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventAr
 	cbGenero->Enabled = false;
 	txtDiretor->Enabled = false;
 	mskAno->Enabled = false;
-	dtpAquisicao->Enabled = false;
 	txtId->Text = "";
 	txtTitulo->Text = "";
 	cbGenero->Text = "";
 	txtDiretor->Text = "";
 	mskAno->Text = "";
-	dtpAquisicao->Text = "";
 }
 private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArgs^  e) {
 	cmd = gcnew MySqlCommand("DELETE FROM LOCADORADB.FILME, LOCADORADB.STATUS USING LOCADORADB.FILME INNER JOIN LOCADORADB.STATUS WHERE LOCADORADB.FILME.FIL_ID = LOCADORADB.STATUS.FIL_ID AND LOCADORADB.FILME.FIL_ID = '" + this->txtId->Text + "' AND LOCADORADB.STATUS.FIL_ID = '" + this->txtId->Text + "' ;", con);
@@ -546,13 +533,11 @@ private: System::Void tsbExcluir_Click(System::Object^  sender, System::EventArg
 	cbGenero->Enabled = false;
 	txtDiretor->Enabled = false;
 	mskAno->Enabled = false;
-	dtpAquisicao->Enabled = false;
 	txtId->Text = "";
 	txtTitulo->Text = "";
 	cbGenero->Text = "";
 	txtDiretor->Text = "";
 	mskAno->Text = "";
-	dtpAquisicao->Text = "";
 }
 private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs^  e) {
 	if (tstId->Text == "") {
@@ -578,14 +563,12 @@ private: System::Void tsbBuscar_Click(System::Object^  sender, System::EventArgs
 			cbGenero->Enabled = true;
 			txtDiretor->Enabled = true;
 			mskAno->Enabled = true;
-			dtpAquisicao->Enabled = true;
 			txtTitulo->Focus();
 			txtId->Text = reader[0]->ToString();
 			txtTitulo->Text = reader[1]->ToString();
 			cbGenero->Text = reader[2]->ToString();
 			txtDiretor->Text = reader[3]->ToString();
 			mskAno->Text = reader[4]->ToString();
-			dtpAquisicao->Text = reader[5]->ToString();
 
 			novo = false;
 		}

@@ -1,10 +1,9 @@
   ProjetoLocadora.Aluguel.resources - Embedded, ContainedInManifestFile, 
-  ProjetoLocadora.casa.resources - Embedded, ContainedInManifestFile, 
   ProjetoLocadora.Clientes.resources - Embedded, ContainedInManifestFile, 
-  ProjetoLocadora.CreateForm.resources - Embedded, ContainedInManifestFile, 
   ProjetoLocadora.DevolverAluguel.resources - Embedded, ContainedInManifestFile, 
   ProjetoLocadora.Filmes.resources - Embedded, ContainedInManifestFile, 
   ProjetoLocadora.ListarClientes.resources - Embedded, ContainedInManifestFile, 
+  ProjetoLocadora.MainForm.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly ProjetoLocadora, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -30,27 +29,15 @@ Class ProjetoLocadora.ListarClientes: AutoLayout, AnsiClass, Class, Public, Befo
 Class ProjetoLocadora.Aluguel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class ProjetoLocadora.Filmes: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ProjetoLocadora.Clientes: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class ProjetoLocadora.DevolverAluguel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class ProjetoLocadora.casa: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class ProjetoLocadora.Filmes: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-Class ProjetoLocadora.CreateForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-  :System.Windows.Forms.Form
-    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Fields:
-    System.String constring : Public
-    MySql.Data.MySqlClient.MySqlConnection conDatabase : Public
-    MySql.Data.MySqlClient.MySqlCommand cmdDataBase : Public
-    MySql.Data.MySqlClient.MySqlDataReader myReader : Public
-    MySql.Data.MySqlClient.MySqlDataAdapter adapt IsByValue : Public, InitOnly
 Class ProjetoLocadora.MainForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

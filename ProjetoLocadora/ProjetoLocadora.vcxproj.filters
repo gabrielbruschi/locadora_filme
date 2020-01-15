@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CreateForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Clientes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,9 +30,6 @@
     <ClCompile Include="ListarClientes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="casa.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DevolverAluguel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -44,9 +38,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CreateForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Clientes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -59,9 +50,6 @@
     <ClInclude Include="ListarClientes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="casa.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DevolverAluguel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -70,9 +58,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainForm.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
     <EmbeddedResource Include="CreateForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
@@ -88,10 +73,10 @@
     <EmbeddedResource Include="ListarClientes.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="casa.resx">
+    <EmbeddedResource Include="DevolverAluguel.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="DevolverAluguel.resx">
+    <EmbeddedResource Include="MainForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

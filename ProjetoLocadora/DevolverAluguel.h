@@ -21,18 +21,22 @@ namespace ProjetoLocadora {
 		MySqlCommand^ cmd;
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	private: System::Windows::Forms::ToolStripButton^  tsbNovo;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator3;
+
 	private: System::Windows::Forms::ToolStripButton^  tsbCancelar;
 	private: System::Windows::Forms::ToolStripButton^  tsbExcluir;
-	private: System::Windows::Forms::ToolStripSeparator^  toolStripSeparator2;
-	private: System::Windows::Forms::ToolStripLabel^  toolStripLabel1;
-	private: System::Windows::Forms::ToolStripTextBox^  tstTitulo;
 
-	private: System::Windows::Forms::ToolStripButton^  tsbBuscar;
+
+
+
+
 	private: System::Windows::Forms::ToolStrip^  toolStrip1;
 	private: System::Windows::Forms::TextBox^  txtIdLoc;
 	private: System::Windows::Forms::Label^  label7;
-	private: System::Windows::Forms::DateTimePicker^  dtpToday;
+
+	private: System::Windows::Forms::GroupBox^  Devolução;
+	private: System::Windows::Forms::GroupBox^  groupBox1;
+	private: System::Windows::Forms::GroupBox^  groupBox2;
+	private: System::Windows::Forms::GroupBox^  groupBox4;
 
 
 
@@ -75,7 +79,7 @@ namespace ProjetoLocadora {
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::TextBox^  txtNome;
 	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::Label^  label4;
+
 
 
 
@@ -93,7 +97,7 @@ namespace ProjetoLocadora {
 
 
 
-	private: System::Windows::Forms::Label^  label5;
+
 	private: System::Windows::Forms::Button^  btnSelecionaCliente;
 	private: System::Windows::Forms::MaskedTextBox^  mskCPF;
 	private: System::Windows::Forms::Label^  label6;
@@ -113,6 +117,9 @@ namespace ProjetoLocadora {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(DevolverAluguel::typeid));
 			this->txtIdFilme = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
@@ -122,32 +129,32 @@ namespace ProjetoLocadora {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->txtNome = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->btnDevolver = (gcnew System::Windows::Forms::Button());
-			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->btnSelecionaCliente = (gcnew System::Windows::Forms::Button());
 			this->mskCPF = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->tsbNovo = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripSeparator3 = (gcnew System::Windows::Forms::ToolStripSeparator());
 			this->tsbCancelar = (gcnew System::Windows::Forms::ToolStripButton());
 			this->tsbExcluir = (gcnew System::Windows::Forms::ToolStripButton());
-			this->toolStripSeparator2 = (gcnew System::Windows::Forms::ToolStripSeparator());
-			this->toolStripLabel1 = (gcnew System::Windows::Forms::ToolStripLabel());
-			this->tstTitulo = (gcnew System::Windows::Forms::ToolStripTextBox());
-			this->tsbBuscar = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			this->txtIdLoc = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->dtpToday = (gcnew System::Windows::Forms::DateTimePicker());
+			this->Devolução = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->toolStrip1->SuspendLayout();
+			this->Devolução->SuspendLayout();
+			this->groupBox2->SuspendLayout();
+			this->groupBox1->SuspendLayout();
+			this->groupBox4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// txtIdFilme
 			// 
-			this->txtIdFilme->Location = System::Drawing::Point(48, 396);
+			this->txtIdFilme->Location = System::Drawing::Point(35, 127);
 			this->txtIdFilme->Name = L"txtIdFilme";
 			this->txtIdFilme->ReadOnly = true;
 			this->txtIdFilme->Size = System::Drawing::Size(74, 26);
@@ -156,7 +163,7 @@ namespace ProjetoLocadora {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Location = System::Drawing::Point(44, 373);
+			this->label9->Location = System::Drawing::Point(31, 104);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(107, 20);
 			this->label9->TabIndex = 63;
@@ -165,16 +172,16 @@ namespace ProjetoLocadora {
 			// txtTitulo
 			// 
 			this->txtTitulo->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->txtTitulo->Location = System::Drawing::Point(180, 396);
+			this->txtTitulo->Location = System::Drawing::Point(155, 127);
 			this->txtTitulo->MaxLength = 50;
 			this->txtTitulo->Name = L"txtTitulo";
-			this->txtTitulo->Size = System::Drawing::Size(392, 26);
+			this->txtTitulo->Size = System::Drawing::Size(460, 26);
 			this->txtTitulo->TabIndex = 61;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(176, 373);
+			this->label2->Location = System::Drawing::Point(151, 104);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(144, 20);
 			this->label2->TabIndex = 62;
@@ -182,7 +189,7 @@ namespace ProjetoLocadora {
 			// 
 			// txtIdCliente
 			// 
-			this->txtIdCliente->Location = System::Drawing::Point(48, 118);
+			this->txtIdCliente->Location = System::Drawing::Point(35, 55);
 			this->txtIdCliente->Name = L"txtIdCliente";
 			this->txtIdCliente->ReadOnly = true;
 			this->txtIdCliente->Size = System::Drawing::Size(74, 26);
@@ -191,7 +198,7 @@ namespace ProjetoLocadora {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(32, 95);
+			this->label1->Location = System::Drawing::Point(27, 32);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(118, 20);
 			this->label1->TabIndex = 67;
@@ -200,7 +207,7 @@ namespace ProjetoLocadora {
 			// txtNome
 			// 
 			this->txtNome->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->txtNome->Location = System::Drawing::Point(168, 118);
+			this->txtNome->Location = System::Drawing::Point(155, 55);
 			this->txtNome->MaxLength = 50;
 			this->txtNome->Name = L"txtNome";
 			this->txtNome->Size = System::Drawing::Size(460, 26);
@@ -209,47 +216,25 @@ namespace ProjetoLocadora {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(164, 95);
+			this->label3->Location = System::Drawing::Point(151, 32);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(126, 20);
 			this->label3->TabIndex = 66;
 			this->label3->Text = L"Nome do Cliente";
 			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(23, 48);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(127, 29);
-			this->label4->TabIndex = 68;
-			this->label4->Text = L"Devolução";
-			// 
 			// btnDevolver
 			// 
-			this->btnDevolver->Location = System::Drawing::Point(790, 422);
+			this->btnDevolver->Location = System::Drawing::Point(75, 37);
 			this->btnDevolver->Name = L"btnDevolver";
-			this->btnDevolver->Size = System::Drawing::Size(103, 47);
+			this->btnDevolver->Size = System::Drawing::Size(122, 42);
 			this->btnDevolver->TabIndex = 71;
 			this->btnDevolver->Text = L"Devolução";
 			this->btnDevolver->UseVisualStyleBackColor = true;
 			this->btnDevolver->Click += gcnew System::EventHandler(this, &DevolverAluguel::btnDevolver_Click);
 			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(576, 431);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(195, 25);
-			this->label5->TabIndex = 72;
-			this->label5->Text = L"Confirmar Devolução";
-			// 
 			// btnSelecionaCliente
 			// 
-			this->btnSelecionaCliente->Location = System::Drawing::Point(868, 113);
+			this->btnSelecionaCliente->Location = System::Drawing::Point(815, 50);
 			this->btnSelecionaCliente->Name = L"btnSelecionaCliente";
 			this->btnSelecionaCliente->Size = System::Drawing::Size(90, 36);
 			this->btnSelecionaCliente->TabIndex = 75;
@@ -259,7 +244,7 @@ namespace ProjetoLocadora {
 			// 
 			// mskCPF
 			// 
-			this->mskCPF->Location = System::Drawing::Point(663, 118);
+			this->mskCPF->Location = System::Drawing::Point(650, 55);
 			this->mskCPF->Mask = L"000.000.000-00";
 			this->mskCPF->Name = L"mskCPF";
 			this->mskCPF->Size = System::Drawing::Size(131, 26);
@@ -268,7 +253,7 @@ namespace ProjetoLocadora {
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(659, 95);
+			this->label6->Location = System::Drawing::Point(646, 32);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(40, 20);
 			this->label6->TabIndex = 73;
@@ -276,93 +261,91 @@ namespace ProjetoLocadora {
 			// 
 			// dataGridView1
 			// 
+			this->dataGridView1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::White;
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(48, 169);
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle5->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle5;
+			this->dataGridView1->Location = System::Drawing::Point(35, 25);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
+			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle6->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			this->dataGridView1->RowHeadersVisible = false;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(1033, 189);
+			this->dataGridView1->Size = System::Drawing::Size(1118, 230);
 			this->dataGridView1->TabIndex = 78;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DevolverAluguel::dataGridView1_CellContentClick);
 			// 
 			// tsbNovo
 			// 
-			this->tsbNovo->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
 			this->tsbNovo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbNovo.Image")));
 			this->tsbNovo->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbNovo->Name = L"tsbNovo";
-			this->tsbNovo->Size = System::Drawing::Size(28, 28);
+			this->tsbNovo->Size = System::Drawing::Size(84, 29);
 			this->tsbNovo->Text = L"Novo";
 			this->tsbNovo->Click += gcnew System::EventHandler(this, &DevolverAluguel::tsbNovo_Click);
 			// 
-			// toolStripSeparator3
-			// 
-			this->toolStripSeparator3->Name = L"toolStripSeparator3";
-			this->toolStripSeparator3->Size = System::Drawing::Size(6, 31);
-			// 
 			// tsbCancelar
 			// 
-			this->tsbCancelar->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
 			this->tsbCancelar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbCancelar.Image")));
 			this->tsbCancelar->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbCancelar->Name = L"tsbCancelar";
-			this->tsbCancelar->Size = System::Drawing::Size(28, 28);
+			this->tsbCancelar->Size = System::Drawing::Size(106, 29);
 			this->tsbCancelar->Text = L"Cancelar";
 			this->tsbCancelar->Click += gcnew System::EventHandler(this, &DevolverAluguel::tsbCancelar_Click);
 			// 
 			// tsbExcluir
 			// 
-			this->tsbExcluir->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
 			this->tsbExcluir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbExcluir.Image")));
 			this->tsbExcluir->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->tsbExcluir->Name = L"tsbExcluir";
-			this->tsbExcluir->Size = System::Drawing::Size(28, 28);
+			this->tsbExcluir->Size = System::Drawing::Size(110, 29);
 			this->tsbExcluir->Text = L"Remover";
-			// 
-			// toolStripSeparator2
-			// 
-			this->toolStripSeparator2->Name = L"toolStripSeparator2";
-			this->toolStripSeparator2->Size = System::Drawing::Size(6, 31);
-			// 
-			// toolStripLabel1
-			// 
-			this->toolStripLabel1->Name = L"toolStripLabel1";
-			this->toolStripLabel1->Size = System::Drawing::Size(149, 28);
-			this->toolStripLabel1->Text = L"Buscar por Título:";
-			// 
-			// tstTitulo
-			// 
-			this->tstTitulo->CharacterCasing = System::Windows::Forms::CharacterCasing::Upper;
-			this->tstTitulo->MaxLength = 40;
-			this->tstTitulo->Name = L"tstTitulo";
-			this->tstTitulo->Size = System::Drawing::Size(200, 31);
-			// 
-			// tsbBuscar
-			// 
-			this->tsbBuscar->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Image;
-			this->tsbBuscar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbBuscar.Image")));
-			this->tsbBuscar->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->tsbBuscar->Name = L"tsbBuscar";
-			this->tsbBuscar->Size = System::Drawing::Size(28, 28);
-			this->tsbBuscar->Text = L"Buscar";
 			// 
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(8) {
-				this->tsbNovo, this->toolStripSeparator3,
-					this->tsbCancelar, this->tsbExcluir, this->toolStripSeparator2, this->toolStripLabel1, this->tstTitulo, this->tsbBuscar
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->tsbNovo, this->tsbCancelar,
+					this->tsbExcluir
 			});
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(1114, 31);
+			this->toolStrip1->Size = System::Drawing::Size(1328, 32);
 			this->toolStrip1->TabIndex = 69;
 			this->toolStrip1->Text = L"toolStrip1";
 			this->toolStrip1->ItemClicked += gcnew System::Windows::Forms::ToolStripItemClickedEventHandler(this, &DevolverAluguel::toolStrip1_ItemClicked);
 			// 
 			// txtIdLoc
 			// 
-			this->txtIdLoc->Location = System::Drawing::Point(272, 55);
+			this->txtIdLoc->Location = System::Drawing::Point(650, 127);
 			this->txtIdLoc->Name = L"txtIdLoc";
 			this->txtIdLoc->ReadOnly = true;
 			this->txtIdLoc->Size = System::Drawing::Size(74, 26);
@@ -371,56 +354,100 @@ namespace ProjetoLocadora {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(176, 58);
+			this->label7->Location = System::Drawing::Point(646, 104);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(78, 20);
+			this->label7->Size = System::Drawing::Size(152, 20);
 			this->label7->TabIndex = 80;
-			this->label7->Text = L"Número #";
+			this->label7->Text = L"Número da Locação";
 			// 
-			// dtpToday
+			// Devolução
 			// 
-			this->dtpToday->CustomFormat = L"yyyy/MM/dd";
-			this->dtpToday->Format = System::Windows::Forms::DateTimePickerFormat::Custom;
-			this->dtpToday->Location = System::Drawing::Point(112, 443);
-			this->dtpToday->MaxDate = System::DateTime(2025, 1, 1, 0, 0, 0, 0);
-			this->dtpToday->MinDate = System::DateTime(2020, 1, 1, 0, 0, 0, 0);
-			this->dtpToday->Name = L"dtpToday";
-			this->dtpToday->RightToLeft = System::Windows::Forms::RightToLeft::No;
-			this->dtpToday->Size = System::Drawing::Size(107, 26);
-			this->dtpToday->TabIndex = 81;
-			this->dtpToday->Visible = false;
+			this->Devolução->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->Devolução->Controls->Add(this->groupBox2);
+			this->Devolução->Controls->Add(this->txtIdCliente);
+			this->Devolução->Controls->Add(this->label1);
+			this->Devolução->Controls->Add(this->label6);
+			this->Devolução->Controls->Add(this->txtNome);
+			this->Devolução->Controls->Add(this->mskCPF);
+			this->Devolução->Controls->Add(this->label2);
+			this->Devolução->Controls->Add(this->label3);
+			this->Devolução->Controls->Add(this->txtIdLoc);
+			this->Devolução->Controls->Add(this->btnSelecionaCliente);
+			this->Devolução->Controls->Add(this->txtTitulo);
+			this->Devolução->Controls->Add(this->label7);
+			this->Devolução->Controls->Add(this->label9);
+			this->Devolução->Controls->Add(this->txtIdFilme);
+			this->Devolução->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->Devolução->ImeMode = System::Windows::Forms::ImeMode::NoControl;
+			this->Devolução->Location = System::Drawing::Point(17, 25);
+			this->Devolução->Name = L"Devolução";
+			this->Devolução->Size = System::Drawing::Size(1197, 168);
+			this->Devolução->TabIndex = 82;
+			this->Devolução->TabStop = false;
+			this->Devolução->Text = L"Identificação do Aluguel";
+			// 
+			// groupBox2
+			// 
+			this->groupBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox2->Controls->Add(this->btnDevolver);
+			this->groupBox2->Location = System::Drawing::Point(958, 74);
+			this->groupBox2->Name = L"groupBox2";
+			this->groupBox2->Size = System::Drawing::Size(212, 88);
+			this->groupBox2->TabIndex = 81;
+			this->groupBox2->TabStop = false;
+			this->groupBox2->Text = L"Confirmar Devolução";
+			// 
+			// groupBox1
+			// 
+			this->groupBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox1->Controls->Add(this->dataGridView1);
+			this->groupBox1->Location = System::Drawing::Point(17, 225);
+			this->groupBox1->Name = L"groupBox1";
+			this->groupBox1->Size = System::Drawing::Size(1197, 288);
+			this->groupBox1->TabIndex = 82;
+			this->groupBox1->TabStop = false;
+			this->groupBox1->Text = L"Títulos em Poder do Cliente";
+			// 
+			// groupBox4
+			// 
+			this->groupBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox4->Controls->Add(this->groupBox1);
+			this->groupBox4->Controls->Add(this->Devolução);
+			this->groupBox4->Location = System::Drawing::Point(46, 48);
+			this->groupBox4->Name = L"groupBox4";
+			this->groupBox4->Size = System::Drawing::Size(1235, 556);
+			this->groupBox4->TabIndex = 83;
+			this->groupBox4->TabStop = false;
 			// 
 			// DevolverAluguel
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1114, 490);
-			this->Controls->Add(this->dtpToday);
-			this->Controls->Add(this->txtIdLoc);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->dataGridView1);
-			this->Controls->Add(this->btnSelecionaCliente);
-			this->Controls->Add(this->mskCPF);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->btnDevolver);
+			this->ClientSize = System::Drawing::Size(1328, 631);
+			this->Controls->Add(this->groupBox4);
 			this->Controls->Add(this->toolStrip1);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->txtIdCliente);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->txtNome);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->txtIdFilme);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->txtTitulo);
-			this->Controls->Add(this->label2);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"DevolverAluguel";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"DevolverAluguel";
+			this->Text = L"VIDEO LOCADORA - DEVOLUÇÃO";
 			this->Load += gcnew System::EventHandler(this, &DevolverAluguel::DevolverAluguel_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
+			this->Devolução->ResumeLayout(false);
+			this->Devolução->PerformLayout();
+			this->groupBox2->ResumeLayout(false);
+			this->groupBox1->ResumeLayout(false);
+			this->groupBox4->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -431,7 +458,6 @@ namespace ProjetoLocadora {
 		tsbCancelar->Enabled = false;
 		tsbExcluir->Enabled = false;
 		tsbExcluir->Enabled = true;
-		tsbBuscar->Enabled = true;
 		txtIdLoc->Enabled = false;
 		txtIdCliente->Enabled = false;
 		txtNome->Enabled = false;
@@ -452,6 +478,7 @@ private: System::Void tsbNovo_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void tsbCancelar_Click(System::Object^  sender, System::EventArgs^  e) {
 	LimparCampos();
 	ListarDtGridView();
+	btnSelecionaCliente->Enabled;
 }
 
 private: System::Void btnSelecionaCliente_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -483,8 +510,6 @@ private: System::Void btnSelecionaCliente_Click(System::Object^  sender, System:
 		tsbNovo->Enabled = false;
 		tsbCancelar->Enabled = true;
 		tsbExcluir->Enabled = true;
-		tstTitulo->Enabled = false;
-		tsbBuscar->Enabled = false;
 		txtIdLoc->Enabled = false;
 		txtIdCliente->Enabled = false;
 		txtNome->Enabled = false;
@@ -512,6 +537,26 @@ private: System::Void toolStrip1_ItemClicked(System::Object^  sender, System::Wi
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
 	try {
+		cmd = gcnew MySqlCommand("SELECT LOCADORADB.LOCACAO.LOC_ID  FROM LOCADORADB.LOCACAO WHERE CLI_ID = '" + this->txtIdCliente->Text + "' AND FIL_ID = '" + this->txtIdFilme->Text + "' ", con);
+
+		try
+		{
+			con->Open();
+
+			reader = cmd->ExecuteReader();
+			while (reader->Read()) {
+				txtIdLoc->Text = reader[0]->ToString();
+			}
+		}
+		catch (Exception^ex)
+		{
+			MessageBox::Show("Erro: " + ex->Message);
+		}
+		finally
+		{
+			con->Close();
+		}
+
 		if (e->RowIndex >= 0)
 		{
 			DataGridViewRow^ row = this->dataGridView1->Rows[e->RowIndex];
@@ -524,7 +569,7 @@ private: System::Void dataGridView1_CellContentClick(System::Object^  sender, Sy
 
 			tsbCancelar->Enabled = true;
 			mskCPF->Enabled = false;
-			btnSelecionaCliente->Enabled = false;
+			btnSelecionaCliente->Enabled = true;
 			btnDevolver->Enabled = true;
 		}
 	}
@@ -533,7 +578,7 @@ private: System::Void dataGridView1_CellContentClick(System::Object^  sender, Sy
 	}
 }
 private: void ListarDtGridView() {
-	cmd = gcnew MySqlCommand("SELECT LOCADORADB.CLIENTE.CLI_ID, LOCADORADB.CLIENTE.NOME, LOCADORADB.CLIENTE.CPF, LOCADORADB.LOCACAO.LOC_ID, LOCADORADB.FILME.FIL_ID, LOCADORADB.FILME.TITULO, LOCADORADB.LOCACAO.DATA_INICIO  FROM LOCADORADB.LOCACAO INNER JOIN LOCADORADB.CLIENTE INNER JOIN LOCADORADB.FILME  ON LOCADORADB.LOCACAO.CLI_ID = LOCADORADB.CLIENTE.CLI_ID AND LOCADORADB.LOCACAO.FIL_ID = LOCADORADB.FILME.FIL_ID AND LOCADORADB.LOCACAO.DEVOLVIDO = '0' ", con);
+	cmd = gcnew MySqlCommand("SELECT DISTINCT LOCADORADB.CLIENTE.CLI_ID, LOCADORADB.CLIENTE.NOME, LOCADORADB.CLIENTE.CPF, LOCADORADB.LOCACAO.LOC_ID, LOCADORADB.FILME.FIL_ID, LOCADORADB.FILME.TITULO, LOCADORADB.LOCACAO.DATA_INICIO  FROM LOCADORADB.LOCACAO INNER JOIN LOCADORADB.CLIENTE INNER JOIN LOCADORADB.FILME INNER JOIN LOCADORADB.DEVOLUCAO  ON LOCADORADB.LOCACAO.CLI_ID = LOCADORADB.CLIENTE.CLI_ID AND LOCADORADB.LOCACAO.FIL_ID = LOCADORADB.FILME.FIL_ID AND LOCADORADB.DEVOLUCAO.LOC_ID = LOCADORADB.LOCACAO.LOC_ID ", con);
 
 	try
 	{
@@ -563,7 +608,7 @@ private: void ListarDtGridView() {
 }
 private: System::Void btnDevolver_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.DEVOLUCAO (LOC_ID, CLI_ID, FIL_ID, DATA_DEVOLUCAO) VALUES('" + this->txtIdLoc->Text + "', '" + this->txtIdCliente->Text + "', '" + this->txtIdFilme->Text + "', '14/01/2020');", con);
+	cmd = gcnew MySqlCommand("INSERT INTO LOCADORADB.DEVOLUCAO (LOC_ID, CLI_ID, FIL_ID) VALUES('" + this->txtIdLoc->Text + "', '" + this->txtIdCliente->Text + "', '" + this->txtIdFilme->Text + "');", con);
 
 	try
 	{
@@ -580,14 +625,15 @@ private: System::Void btnDevolver_Click(System::Object^  sender, System::EventAr
 		con->Close();
 	}
 
-	UpdateStatus(); //Atualiza o Status do filme devolvido para "Disponível"
+	UpdateStatus();
 	LimparCampos();
+	ListarDtGridView();
 	
 }
 
-
+		 //Atualiza o Status DEVOLVIDO do filme para "SIM"
 private: void UpdateStatus() {
-	cmd = gcnew MySqlCommand(" UPDATE LOCADORADB.STATUS SET DISPONIVEL = 'DISPONIVEL' WHERE FIL_ID = '" + this->txtIdFilme->Text + "' ;", con);
+	cmd = gcnew MySqlCommand(" UPDATE LOCADORADB.STATUS SET DISPONIVEL = 'SIM' WHERE FIL_ID = '" + this->txtIdFilme->Text + "' ;", con);
 	con->Open();
 	try
 	{
@@ -610,11 +656,8 @@ private: void LimparCampos() {
 	tsbNovo->Enabled = true;
 	tsbCancelar->Enabled = false;
 	tsbExcluir->Enabled = false;
-	tstTitulo->Enabled = true;
-	tsbBuscar->Enabled = true;
 	mskCPF->Enabled = true;
 	btnDevolver->Enabled = false;
-	tstTitulo->Text = "";
 	txtIdLoc->Text = "";
 	txtIdCliente->Text = "";
 	txtNome->Text = "";
