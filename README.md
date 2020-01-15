@@ -3,10 +3,8 @@
 
 O sistema de informações para video locadora apresenta recursos importantes para a manipulação de aluguéis e devoluções dos filmes.
 O software realiza o cadastro, atualização e exclusão de clientes e filmes. Todos esses recursos tem sua utilização simplificada para que o cliente não encontre dificuldades.
-Na tela inicial os filmes do catálogo são exibidos. Há possibilidade de selecionar o que será visto na grade.
 
 ![](header.png)
-
 ## Instalação
 Para abrir o projeto no Visual Studio é necessário clonar o repositório.
 
@@ -39,7 +37,7 @@ Defina o valor do 'entry point' para "Main". Como nesta [imagem].
 
 Defina o valor do 'SubSystem' para "SUBSYSTEM:WINDOWS". Como nesta [imagem.]
 
-## Meta
+## Dados
 
 Gabriel Gonçalves Bruschi – gabrielbruschi1@gmail.com
 
