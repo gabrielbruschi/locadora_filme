@@ -58,9 +58,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="CreateForm.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
     <EmbeddedResource Include="Clientes.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
@@ -79,5 +76,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

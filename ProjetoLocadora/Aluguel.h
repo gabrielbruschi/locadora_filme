@@ -48,6 +48,7 @@ namespace ProjetoLocadora {
 	private: System::Windows::Forms::GroupBox^  groupBox2;
 	private: System::Windows::Forms::GroupBox^  groupBox3;
 	private: System::Windows::Forms::GroupBox^  groupBox4;
+	private: System::Windows::Forms::ToolStripButton^  tsbListar;
 
 
 
@@ -151,6 +152,7 @@ namespace ProjetoLocadora {
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->tsbListar = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStrip1->SuspendLayout();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -231,9 +233,9 @@ namespace ProjetoLocadora {
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->toolStripSeparator1,
-					this->tsbCancelar
+					this->tsbCancelar, this->tsbListar
 			});
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
@@ -422,12 +424,15 @@ namespace ProjetoLocadora {
 			// btnLocar
 			// 
 			this->btnLocar->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"btnLocar.BackgroundImage")));
-			this->btnLocar->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->btnLocar->Location = System::Drawing::Point(154, 294);
+			this->btnLocar->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->btnLocar->FlatStyle = System::Windows::Forms::FlatStyle::System;
+			this->btnLocar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnLocar->Location = System::Drawing::Point(140, 305);
 			this->btnLocar->Name = L"btnLocar";
-			this->btnLocar->Size = System::Drawing::Size(91, 73);
+			this->btnLocar->Size = System::Drawing::Size(136, 54);
 			this->btnLocar->TabIndex = 7;
-			this->btnLocar->Text = L"Locar";
+			this->btnLocar->Text = L"Confirmar";
 			this->btnLocar->UseVisualStyleBackColor = true;
 			this->btnLocar->Click += gcnew System::EventHandler(this, &Aluguel::btnLocar_Click);
 			// 
@@ -507,6 +512,15 @@ namespace ProjetoLocadora {
 			this->groupBox4->TabIndex = 78;
 			this->groupBox4->TabStop = false;
 			// 
+			// tsbListar
+			// 
+			this->tsbListar->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbListar.Image")));
+			this->tsbListar->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->tsbListar->Name = L"tsbListar";
+			this->tsbListar->Size = System::Drawing::Size(148, 29);
+			this->tsbListar->Text = L"Exibir Clientes";
+			this->tsbListar->Click += gcnew System::EventHandler(this, &Aluguel::tsbListar_Click_1);
+			// 
 			// Aluguel
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
@@ -517,7 +531,7 @@ namespace ProjetoLocadora {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Aluguel";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Aluguel um Filme";
+			this->Text = L"VIDEO LOCADORA - NOVA LOCAÇÃO";
 			this->Load += gcnew System::EventHandler(this, &Aluguel::Aluguel_Load);
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
@@ -720,6 +734,10 @@ private: void Cancelar() {
 	txtDisponivel->Text = "";
 	dtpInicio->Text = "";
 	dtpFinal->Text = "";
+}
+private: System::Void tsbListar_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	ListarClientes^ _ListarClientes = gcnew ListarClientes();
+	_ListarClientes->ShowDialog();
 }
 };
 }

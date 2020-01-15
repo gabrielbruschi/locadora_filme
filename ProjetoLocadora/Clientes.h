@@ -382,7 +382,7 @@ namespace ProjetoLocadora {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Clientes";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"VIDEO LOCADORA - CLIENTE";
+			this->Text = L"VIDEO LOCADORA - CADASTRO & EDIÇÃO - CLIENTES";
 			this->Load += gcnew System::EventHandler(this, &Clientes::Clientes_Load);
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();

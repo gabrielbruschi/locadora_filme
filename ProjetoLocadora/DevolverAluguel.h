@@ -20,10 +20,10 @@ namespace ProjetoLocadora {
 		MySqlConnection^ con = gcnew MySqlConnection(constring);
 		MySqlCommand^ cmd;
 	private: System::Windows::Forms::DataGridView^  dataGridView1;
-	private: System::Windows::Forms::ToolStripButton^  tsbNovo;
+
 
 	private: System::Windows::Forms::ToolStripButton^  tsbCancelar;
-	private: System::Windows::Forms::ToolStripButton^  tsbExcluir;
+
 
 
 
@@ -37,6 +37,7 @@ namespace ProjetoLocadora {
 	private: System::Windows::Forms::GroupBox^  groupBox1;
 	private: System::Windows::Forms::GroupBox^  groupBox2;
 	private: System::Windows::Forms::GroupBox^  groupBox4;
+	private: System::Windows::Forms::ToolStripButton^  toolStripButton1;
 
 
 
@@ -117,9 +118,9 @@ namespace ProjetoLocadora {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(DevolverAluguel::typeid));
 			this->txtIdFilme = (gcnew System::Windows::Forms::TextBox());
 			this->label9 = (gcnew System::Windows::Forms::Label());
@@ -134,9 +135,7 @@ namespace ProjetoLocadora {
 			this->mskCPF = (gcnew System::Windows::Forms::MaskedTextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->tsbNovo = (gcnew System::Windows::Forms::ToolStripButton());
 			this->tsbCancelar = (gcnew System::Windows::Forms::ToolStripButton());
-			this->tsbExcluir = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
 			this->txtIdLoc = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
@@ -144,6 +143,7 @@ namespace ProjetoLocadora {
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox4 = (gcnew System::Windows::Forms::GroupBox());
+			this->toolStripButton1 = (gcnew System::Windows::Forms::ToolStripButton());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->toolStrip1->SuspendLayout();
 			this->Devolução->SuspendLayout();
@@ -224,6 +224,9 @@ namespace ProjetoLocadora {
 			// 
 			// btnDevolver
 			// 
+			this->btnDevolver->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->btnDevolver->Location = System::Drawing::Point(75, 37);
 			this->btnDevolver->Name = L"btnDevolver";
 			this->btnDevolver->Size = System::Drawing::Size(122, 42);
@@ -266,51 +269,42 @@ namespace ProjetoLocadora {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->dataGridView1->AutoSizeColumnsMode = System::Windows::Forms::DataGridViewAutoSizeColumnsMode::Fill;
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::White;
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle5->BackColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::ControlText;
-			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::ControlText;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridView1->DefaultCellStyle = dataGridViewCellStyle2;
 			this->dataGridView1->Location = System::Drawing::Point(35, 25);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->ReadOnly = true;
-			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
-			dataGridViewCellStyle6->BackColor = System::Drawing::SystemColors::Control;
-			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle3->BackColor = System::Drawing::SystemColors::Control;
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::WindowText;
-			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->dataGridView1->RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::WindowText;
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->dataGridView1->RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
 			this->dataGridView1->RowHeadersVisible = false;
 			this->dataGridView1->RowTemplate->Height = 28;
-			this->dataGridView1->Size = System::Drawing::Size(1118, 230);
+			this->dataGridView1->Size = System::Drawing::Size(1118, 173);
 			this->dataGridView1->TabIndex = 78;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &DevolverAluguel::dataGridView1_CellContentClick);
-			// 
-			// tsbNovo
-			// 
-			this->tsbNovo->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbNovo.Image")));
-			this->tsbNovo->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->tsbNovo->Name = L"tsbNovo";
-			this->tsbNovo->Size = System::Drawing::Size(84, 29);
-			this->tsbNovo->Text = L"Novo";
-			this->tsbNovo->Click += gcnew System::EventHandler(this, &DevolverAluguel::tsbNovo_Click);
 			// 
 			// tsbCancelar
 			// 
@@ -321,21 +315,10 @@ namespace ProjetoLocadora {
 			this->tsbCancelar->Text = L"Cancelar";
 			this->tsbCancelar->Click += gcnew System::EventHandler(this, &DevolverAluguel::tsbCancelar_Click);
 			// 
-			// tsbExcluir
-			// 
-			this->tsbExcluir->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"tsbExcluir.Image")));
-			this->tsbExcluir->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->tsbExcluir->Name = L"tsbExcluir";
-			this->tsbExcluir->Size = System::Drawing::Size(110, 29);
-			this->tsbExcluir->Text = L"Remover";
-			// 
 			// toolStrip1
 			// 
 			this->toolStrip1->ImageScalingSize = System::Drawing::Size(24, 24);
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
-				this->tsbNovo, this->tsbCancelar,
-					this->tsbExcluir
-			});
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) { this->tsbCancelar, this->toolStripButton1 });
 			this->toolStrip1->Location = System::Drawing::Point(0, 0);
 			this->toolStrip1->Name = L"toolStrip1";
 			this->toolStrip1->Size = System::Drawing::Size(1328, 32);
@@ -365,7 +348,6 @@ namespace ProjetoLocadora {
 			this->Devolução->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
-			this->Devolução->Controls->Add(this->groupBox2);
 			this->Devolução->Controls->Add(this->txtIdCliente);
 			this->Devolução->Controls->Add(this->label1);
 			this->Devolução->Controls->Add(this->label6);
@@ -384,7 +366,7 @@ namespace ProjetoLocadora {
 			this->Devolução->ImeMode = System::Windows::Forms::ImeMode::NoControl;
 			this->Devolução->Location = System::Drawing::Point(17, 25);
 			this->Devolução->Name = L"Devolução";
-			this->Devolução->Size = System::Drawing::Size(1197, 168);
+			this->Devolução->Size = System::Drawing::Size(1197, 183);
 			this->Devolução->TabIndex = 82;
 			this->Devolução->TabStop = false;
 			this->Devolução->Text = L"Identificação do Aluguel";
@@ -395,9 +377,9 @@ namespace ProjetoLocadora {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox2->Controls->Add(this->btnDevolver);
-			this->groupBox2->Location = System::Drawing::Point(958, 74);
+			this->groupBox2->Location = System::Drawing::Point(884, 436);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(212, 88);
+			this->groupBox2->Size = System::Drawing::Size(345, 129);
 			this->groupBox2->TabIndex = 81;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Confirmar Devolução";
@@ -408,9 +390,9 @@ namespace ProjetoLocadora {
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->groupBox1->Controls->Add(this->dataGridView1);
-			this->groupBox1->Location = System::Drawing::Point(17, 225);
+			this->groupBox1->Location = System::Drawing::Point(17, 214);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(1197, 288);
+			this->groupBox1->Size = System::Drawing::Size(1197, 216);
 			this->groupBox1->TabIndex = 82;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Títulos em Poder do Cliente";
@@ -420,13 +402,23 @@ namespace ProjetoLocadora {
 			this->groupBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
+			this->groupBox4->Controls->Add(this->groupBox2);
 			this->groupBox4->Controls->Add(this->groupBox1);
 			this->groupBox4->Controls->Add(this->Devolução);
 			this->groupBox4->Location = System::Drawing::Point(46, 48);
 			this->groupBox4->Name = L"groupBox4";
-			this->groupBox4->Size = System::Drawing::Size(1235, 556);
+			this->groupBox4->Size = System::Drawing::Size(1235, 571);
 			this->groupBox4->TabIndex = 83;
 			this->groupBox4->TabStop = false;
+			// 
+			// toolStripButton1
+			// 
+			this->toolStripButton1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"toolStripButton1.Image")));
+			this->toolStripButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->toolStripButton1->Name = L"toolStripButton1";
+			this->toolStripButton1->Size = System::Drawing::Size(148, 29);
+			this->toolStripButton1->Text = L"Exibir Clientes";
+			this->toolStripButton1->Click += gcnew System::EventHandler(this, &DevolverAluguel::toolStripButton1_Click);
 			// 
 			// DevolverAluguel
 			// 
@@ -454,10 +446,7 @@ namespace ProjetoLocadora {
 		}
 #pragma endregion
 	private: System::Void DevolverAluguel_Load(System::Object^  sender, System::EventArgs^  e) {
-		tsbNovo->Enabled = true;
 		tsbCancelar->Enabled = false;
-		tsbExcluir->Enabled = false;
-		tsbExcluir->Enabled = true;
 		txtIdLoc->Enabled = false;
 		txtIdCliente->Enabled = false;
 		txtNome->Enabled = false;
@@ -507,9 +496,7 @@ private: System::Void btnSelecionaCliente_Click(System::Object^  sender, System:
 			txtIdLoc->Text = reader[3]->ToString();
 		}
 			
-		tsbNovo->Enabled = false;
 		tsbCancelar->Enabled = true;
-		tsbExcluir->Enabled = true;
 		txtIdLoc->Enabled = false;
 		txtIdCliente->Enabled = false;
 		txtNome->Enabled = false;
@@ -639,7 +626,7 @@ private: void UpdateStatus() {
 	{
 		int i = cmd->ExecuteNonQuery();
 		if (i > 0)
-			MessageBox::Show("Filme: " + this->txtTitulo + " devolvido com sucesso!");
+			MessageBox::Show("Filme devolvido com sucesso!");
 	}
 	catch (Exception^ex)
 	{
@@ -653,9 +640,7 @@ private: void UpdateStatus() {
 
 
 private: void LimparCampos() {
-	tsbNovo->Enabled = true;
 	tsbCancelar->Enabled = false;
-	tsbExcluir->Enabled = false;
 	mskCPF->Enabled = true;
 	btnDevolver->Enabled = false;
 	txtIdLoc->Text = "";
@@ -664,6 +649,10 @@ private: void LimparCampos() {
 	mskCPF->Text = "";
 	txtIdFilme->Text = "";
 	txtTitulo->Text = "";
+}
+private: System::Void toolStripButton1_Click(System::Object^  sender, System::EventArgs^  e) {
+	ListarClientes^ _ListarClientes = gcnew ListarClientes();
+	_ListarClientes->ShowDialog();
 }
 };
 }

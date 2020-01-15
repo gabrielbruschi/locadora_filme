@@ -1,4 +1,5 @@
-﻿  DevolverAluguel.cpp
+﻿  Aluguel.cpp
+  DevolverAluguel.cpp
   MainForm.cpp
   Generating Code...
   Aluguel.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link

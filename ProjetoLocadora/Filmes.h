@@ -330,7 +330,7 @@ namespace ProjetoLocadora {
 			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"Filmes";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"VIDEO LOCADORA - FILME";
+			this->Text = L"VIDEO LOCADORA - CADASTRO & EDIÇÃO - FILMES";
 			this->Load += gcnew System::EventHandler(this, &Filmes::Filmes_Load);
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
